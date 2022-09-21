@@ -19,27 +19,33 @@ export function SignIn() {
             </h1>
 
             <Form>
-                <h2>Crie Sua Conta</h2>
+                <div className="form">
+                    <h2>Crie Sua Conta</h2>
+    
+                    <p>Seu Nome</p>
+                    <Input
+                        type="text"
+                        placeholder="Exemplo: Maria da Silva"
+                    />
+    
+                    <p>Email</p>
+                    <Input
+                        type="email"
+                        placeholder="Exemplo: exemplo@exemplo.com" 
+                    />
+    
+                    <p>Senha</p>
+                    <Input
+                        type="password"
+                        placeholder="No minímo 6 caracteres" 
+                    />
+    
+                    <Button title="Criar Conta" />
+                </div>
 
-                <p>Seu Nome</p>
-                <Input
-                    type="text"
-                    placeholder="Exemplo: Maria da Silva"
-                />
-
-                <p>Email</p>
-                <Input
-                    type="email"
-                    placeholder="Exemplo: exemplo@exemplo.com" 
-                />
-
-                <p>Senha</p>
-                <Input
-                    type="password"
-                    placeholder="No minímo 6 caracteres" 
-                />
-
-                <Button title="Criar Conta" />
+                <button className="button">
+                    Já tenho uma conta
+                </button>
             </Form>            
         </Container>
     )

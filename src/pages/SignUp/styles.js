@@ -28,9 +28,7 @@ export const Container = styled.div`
       margin: 0;
 
       > h1 {
-         margin-top: 1.2rem;
-         margin-bottom: 1.2rem;
-  
+         margin-top: 1.2rem;  
       }
    }
 `;
@@ -48,37 +46,49 @@ export const Form = styled.form`
 
    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
 
-   > h2 {
+   > .form {
+      width: 20rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      > h2 {
       margin-top: 4rem;
 
       font-size: 2rem;
       font-weight: 500;
-   }
-
-   > p {
-      display: flex;
-      justify-content: start;
-
-      font-size: 1rem;
-      color: ${({ theme }) => theme.COLORS.GRAY_800};
-
-      width: 21.75rem;
-
-      margin-top: 2rem;
-      margin-bottom: 0.5rem;
-   }
-
-
-   @media (max-width: 1065px) {
-      margin: 0;
-      width: 23.43rem;
-
-      input {
-         width: 20rem;
       }
 
       > p {
-         margin-left: 1.8rem;
+         display: flex;
+         justify-content: start;
+
+         font-size: 1rem;
+         color: ${({ theme }) => theme.COLORS.GRAY_800};
+
+         width: 21.75rem;
+
+         margin-top: 2rem;
+         margin-bottom: 0.5rem;
       }
+   }
+
+   > .button {         
+         background: transparent;       
+         border: none;
+
+         margin-top: 2rem;
+
+         font-size: 0.87rem;
+         font-weight: 500;
+         color: ${({ theme }) => theme.COLORS.WHITE};
+      }
+   
+   @media (max-width: 1065px) {
+      margin-top: 1rem;
+      margin-right: 4.9rem;
+      margin-left: 4.9rem;
+
+      width: 100%;
    }
 `;

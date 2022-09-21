@@ -19,20 +19,26 @@ export function SignUp() {
             </h1>
 
             <Form>
-                <h2>Faça Login</h2>
+                <div className="form">
+                    <h2>Faça Login</h2>
 
-                <p>E-mail</p>
-                <Input
-                    type="email"
-                    placeholder="Exemplo: exemplo@exemplo.com"
-                />
+                    <p>E-mail</p>
+                    <Input
+                        type="email"
+                        placeholder="Exemplo: exemplo@exemplo.com"
+                    />
 
-                <p>Senha</p>
-                <Input
-                    type="password"
-                    placeholder="No minímo 6 caracteres" 
-                />
-                <Button title="Criar Conta" />
+                    <p>Senha</p>
+                    <Input
+                        type="password"
+                        placeholder="No minímo 6 caracteres" 
+                    />
+                    <Button title="Entrar" />
+                </div>
+
+                <button className="button">
+                        Criar uma Conta
+                    </button>
             </Form>            
         </Container>
     )
