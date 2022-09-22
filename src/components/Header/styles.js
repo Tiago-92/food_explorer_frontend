@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
    display: flex;
    align-items: center;
-   justify-content: space-evenly;
+   justify-content: space-around;
    
    height: 6.5rem;
 
@@ -39,7 +39,6 @@ export const Container = styled.div`
 
    > .input {
       width: 25.62rem;
-     
    }
 
    @media (max-width: 1065px) {

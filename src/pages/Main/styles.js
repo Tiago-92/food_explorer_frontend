@@ -1,14 +1,55 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.main`
    display: grid;
    grid-template-areas: 
    "header"
    "main"
-   "footer";
-   
+   "footer"
+
    > header {
       content:"header";
+   }
+
+   > .flavors {
+      display: flex;
+      flex-direction: row;
+      height: 25.37rem;
+      margin-top: 1.94rem;
+      
+      @media(max-width: 1070px) {
+         display: none;
+      }
+
+      > img {
+         margin-left: 4.37rem;
+         position: absolute;
+         z-index:1;
+      }
+
+      > .box-green {
+         display: flex;
+         justify-content: end;
+         align-items: center;
+         padding-right: 2.87rem;
+
+         width: 70rem;
+         height: 17.19rem;
+         position: relative;
+         margin-top: 8.25rem;
+         margin-left: 7.75rem;
+         background: linear-gradient(180deg, #091E26 0%, #00131C 100%);
+         border-radius: 8px;
+      }
+   }
+
+   > h1 {
+      margin-left: 7.69rem;
+      margin-top: 3rem;
+      margin-bottom: 2.44rem;
+
+      font-size: 2rem;
+      font-weight: 500;
    }
 
    > footer {
@@ -17,10 +58,9 @@ export const Container = styled.div`
    }
 `;
 
-export const Content = styled.main`
+export const Content = styled.div`
    display: grid; 
    content: "main";
-   justify-content: center;
 
    > .dishs { // mobile version (mobile-first)
       display: flex;
@@ -54,19 +94,20 @@ export const Content = styled.main`
       flex-direction: row;
       justify-content: center;
       gap: 1.69rem;
+      flex-wrap: wrap;
 
       > .dishs {
          display: flex;
-         flex-direction: row;
-
+         flex-direction: column;
          position: relative;
          width: 70.12rem;
-      
+
          > .carousel {
             display: flex;
             flex-direction: row;
             opacity: 65%;
-            
+            width: 70.12rem;
+
             overflow-x: auto;
          
          > .button-left {
