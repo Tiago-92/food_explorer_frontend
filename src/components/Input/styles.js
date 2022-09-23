@@ -6,14 +6,17 @@ export const Container = styled.div`
 
    display: flex;
    align-items: center;
+   padding-left: 16px;
 
-   width:100%;
+   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
+   border-radius: 5px;
 
-   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
-   
    > input {
       width: 100%;
       height: 3rem;
+
+      background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
+      border: none;
 
       font-size: 1rem;
       padding-left: 0.75rem;
