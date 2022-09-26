@@ -23,7 +23,7 @@ export const Content = styled.main` // mobile-first
    display: flex;
    flex-direction: column;
    align-items: center;
-
+   
    > img {
       width: 15rem;
       height: 15rem;

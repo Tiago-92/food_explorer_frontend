@@ -1,5 +1,6 @@
 import { Header } from "../../components/Header";
 import { Button } from "../../components/Button";
+import { Footer } from "../../components/Footer";
 
 import { Container, Content } from "./styles";
 import arrowLeft from "../../assets/arrowLeft.svg";
