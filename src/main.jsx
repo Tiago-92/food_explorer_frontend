@@ -4,13 +4,13 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyles from './styles/global';
 import theme from './styles/theme';
 
-import { Order } from './pages/Order';
+import { Payment } from './pages/Payment';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Order />
+      <Payment />
     </ThemeProvider>
   </React.StrictMode>
 )
