@@ -29,17 +29,20 @@ export const Container = styled.div`
       }
    }
    
-   > p {
-      font-weight: 400;
-   }
-
    > button {
-      width: 13.5rem;
+      font-size: 1rem;
+      font-family: 'Roboto', sans-serif;
+      font-weight: normal;
+
+      background: none;
+      border: none;
+      color: #E1E1E6;
    }
 
    > .input {
       width: 25.62rem;
    }
+
 
    @media (max-width: 1065px) {
       display: flex;
@@ -59,7 +62,7 @@ export const Container = styled.div`
          width: 20rem;
       }
 
-      > button {
+      > .button {
          width: 20rem;
          margin-top: 1rem;
       }
@@ -68,5 +71,27 @@ export const Container = styled.div`
    @media (min-width: 1065px) {
       padding-left: 123px;
       padding-right: 123px;
+
+      > .button {
+         width: 13.5rem;
+         height: 3.5rem;
+         
+         > a {
+            display: flex;
+            gap: 11px;
+
+            color: ${({ theme }) => theme.COLORS.WHITE};
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.86rem;
+            font-weight: 500;
+            text-decoration: none;
+
+            > svg {
+               margin-left: 3px;
+               width: 26px;
+               height: 22px;
+            }
+         }
+      }
    }
 `;

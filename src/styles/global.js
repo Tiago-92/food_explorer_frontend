@@ -16,7 +16,7 @@ export default createGlobalStyle`
         background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
     }
 
-    span, header, footer, input {
+    span, header, footer, input, label {
         font-family: 'Roboto', sans-serif;
     }
 

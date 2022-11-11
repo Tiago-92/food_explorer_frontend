@@ -1,5 +1,7 @@
 import { Container, Form } from "./styles";
 
+import { Link } from "react-router-dom";
+
 import polygon from "../../assets/polygon.svg";
 
 import { Input } from "../../components/Input";
@@ -37,8 +39,10 @@ export function SignUp() {
                 </div>
 
                 <button className="button">
+                    <Link to="/">
                         Criar uma Conta
-                    </button>
+                    </Link>
+                </button>
             </Form>            
         </Container>
     )

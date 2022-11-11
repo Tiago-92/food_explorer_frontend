@@ -58,9 +58,10 @@ export function Main() {
             </div>
          </div>
 
-         <h1>Pratos Principais</h1>
-        
          <Content>
+
+            <h1>Pratos Principais</h1>
+
             <div className="dishs">
                <div className="carousel" ref={carousel}>
 
@@ -89,42 +90,42 @@ export function Main() {
                </div>                      
             </div> 
          </Content>
-
-         <h1>Sobremesas</h1>
-
          <Content>
-         <div className="dishs">
-               <div className="carousel" ref={carousel_3}>
 
-                  <button onClick={handleLeftClickDrink} className="button-left">
-                     <img src={arrow} />
-                  </button>
-                  <button onClick={handleRightClickDrink} className="button-right">
-                     <img src={arrow} />
-                  </button>
+            <h1>Sobremesas</h1>
+            
+            <div className="dishs">
+                  <div className="carousel" ref={carousel_3}>
 
-                  <div className="item">
-                     <Dish/>
+                     <button onClick={handleLeftClickDrink} className="button-left">
+                        <img src={arrow} />
+                     </button>
+                     <button onClick={handleRightClickDrink} className="button-right">
+                        <img src={arrow} />
+                     </button>
+
+                     <div className="item">
+                        <Dish/>
+                     </div>
+
+                     <div className="item">
+                        <Dish/>
+                     </div>
+
+                     <div className="item">
+                        <Dish/>
+                     </div>
+
+                     <div className="item">
+                        <Dish/>
+                     </div>
                   </div>
-
-                  <div className="item">
-                     <Dish/>
-                  </div>
-
-                  <div className="item">
-                     <Dish/>
-                  </div>
-
-                  <div className="item">
-                     <Dish/>
-                  </div>
-               </div>
-            </div>         
+               </div>         
          </Content>
-
+         <Content>
+            
          <h1>Bebidas</h1>
 
-         <Content>
          <div className="dishs">
                <div className="carousel" ref={carousel_2}>
 

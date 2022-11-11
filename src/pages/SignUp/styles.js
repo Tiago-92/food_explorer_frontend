@@ -79,9 +79,11 @@ export const Form = styled.form`
 
          margin-top: 2rem;
 
-         font-size: 0.87rem;
-         font-weight: 500;
-         color: ${({ theme }) => theme.COLORS.WHITE};
+         a {
+            font-size: 0.87rem;
+            font-weight: 500;
+            color: ${({ theme }) => theme.COLORS.WHITE};
+         }
       }
    
    @media (max-width: 1065px) {

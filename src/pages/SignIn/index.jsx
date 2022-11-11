@@ -1,5 +1,7 @@
 import { Container, Form } from "./styles";
 
+import { Link } from "react-router-dom";
+
 import polygon from "../../assets/polygon.svg";
 
 import { Input } from "../../components/Input";
@@ -21,30 +23,41 @@ export function SignIn() {
             <Form>
                 <div className="form">
                     <h2>Crie Sua Conta</h2>
-    
-                    <p>Seu Nome</p>
-                    <Input
-                        type="text"
-                        placeholder="Exemplo: Maria da Silva"
-                    />
-    
-                    <p>Email</p>
-                    <Input
-                        type="email"
-                        placeholder="Exemplo: exemplo@exemplo.com" 
-                    />
-    
-                    <p>Senha</p>
-                    <Input
-                        type="password"
-                        placeholder="No minímo 6 caracteres" 
-                    />
-    
+
+                    <div>
+                        <label>Seu Nome</label>
+                        <Input
+                            isTransparent
+                            type="text"
+                            placeholder="Exemplo: Maria da Silva"
+                        />
+                    </div>
+
+                    <div>
+                        <label>Email</label>
+                        <Input
+                            isTransparent
+                            type="email"
+                            placeholder="Exemplo: exemplo@exemplo.com" 
+                        />
+                    </div>
+
+                    <div>
+                        <label>Senha</label>
+                        <Input
+                            isTransparent
+                            type="password"
+                            placeholder="No minímo 6 caracteres" 
+                        />
+                    </div>
+                    
                     <Button title="Criar Conta" />
                 </div>
 
                 <button className="button">
-                    Já tenho uma conta
+                    <Link to="/register">
+                        Já tenho uma conta
+                    </Link>
                 </button>
             </Form>            
         </Container>

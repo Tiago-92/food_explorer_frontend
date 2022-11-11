@@ -15,9 +15,26 @@ export const Container = styled.div`
          > img {
             width: 11rem;
             height: 11rem;
-            
-            margin-top: 3.5rem;
          }
+
+         > div {
+            width: 100%;
+            display: flex;
+            justify-content: end;
+            padding-right: 1rem;
+
+               > .favorite {
+                  background: none;
+                  border: none;
+
+                  margin-top: 1.31rem;
+
+                  > img {
+                     width: 1.62rem;
+                     height: 1.37rem;
+                  }
+               }
+            }
          
          > h3 {
             margin-top: 1rem;
@@ -44,16 +61,24 @@ export const Container = styled.div`
          }
 
          > .add-acc {
+            margin-top: 1rem;
             display: flex;
             flex-direction: row;
             align-items: center;
+            justify-content: center;
             gap: 1rem;
 
             margin-top: 1.06rem;
 
-            > button {
+            > div {
+               display: flex;
+               align-items: center;
                width: 5.75rem;
-               height: 3rem;
+               height: 1.5rem;
+
+               > a {
+                  text-decoration: none;
+               }
             }
          }
       }

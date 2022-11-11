@@ -42,16 +42,6 @@ export const Container = styled.main`
          border-radius: 8px;
       }
    }
-
-   > h1 {
-      margin-left: 7.69rem;
-      margin-top: 3rem;
-      margin-bottom: 2.44rem;
-
-      font-size: 2rem;
-      font-weight: 500;
-   }
-
    > footer {
       content: "footer";
       height: 124px;
@@ -59,10 +49,22 @@ export const Container = styled.main`
 `;
 
 export const Content = styled.div`
+   // mobile version (mobile-first)
    display: grid; 
    content: "main";
 
-   > .dishs { // mobile version (mobile-first)
+   > h1 {
+      display: flex;
+      justify-content: center;
+
+      margin-top: 3rem;
+      margin-bottom: 2.44rem;
+
+      font-size: 2rem;
+      font-weight: 500;
+   }
+   
+   > .dishs {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -70,7 +72,7 @@ export const Content = styled.div`
       > button {
          background-color: transparent;
          border: none;
-      }  
+      }
 
       > h2 {
          margin-bottom: 0.94rem;
@@ -86,15 +88,28 @@ export const Content = styled.div`
             width: 18.75rem;
             height: 32rem;
          }
+
+         > button {
+            display: none;
+         }
       }
    }
-   
-   @media (min-width: 1070px) { // desktop version
+      
+   // desktop version
+   @media (min-width: 1200px) { 
       display: flex;
       flex-direction: row;
       justify-content: center;
       gap: 1.69rem;
       flex-wrap: wrap;
+
+      h1 {
+         display: flex;
+         justify-content: start;
+         width: 100%;
+
+         margin-left: 7.69rem;
+      }
 
       > .dishs {
          display: flex;
@@ -116,6 +131,7 @@ export const Content = styled.div`
             left: 0;
             right: auto;
             padding-left: 1.87rem;
+            display: block;
 
             width: 116px;
             position: absolute;

@@ -51,25 +51,23 @@ export const Form = styled.form`
       display: flex;
       flex-direction: column;
       justify-content: center;
+      gap: 2rem;
 
       > h2 {
-      margin-top: 4rem;
+         display: flex;
+         justify-content: center;
 
-      font-size: 2rem;
-      font-weight: 500;
+         margin-top: 4rem;
+
+         font-size: 2rem;
+         font-weight: 500;
+         line-height: 24px;
       }
 
-      > p {
+      > div {
          display: flex;
-         justify-content: start;
-
-         font-size: 1rem;
-         color: ${({ theme }) => theme.COLORS.GRAY_800};
-
-         width: 21.75rem;
-
-         margin-top: 2rem;
-         margin-bottom: 0.3rem;
+         flex-direction: column;
+         gap: 0.5rem;
       }
    }
 
@@ -79,9 +77,12 @@ export const Form = styled.form`
 
          margin-top: 2rem;
 
-         font-size: 0.87rem;
-         font-weight: 500;
-         color: ${({ theme }) => theme.COLORS.WHITE};
+         a {
+            font-size: 0.87rem;
+            font-weight: 500;
+            color: ${({ theme }) => theme.COLORS.WHITE};
+
+         }
       }
    
    @media (max-width: 1065px) {

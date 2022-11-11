@@ -9,17 +9,25 @@ export const Container = styled.div`
    padding-left: 16px;
    width: 100%;
 
-   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
+   background-color: ${({ theme, isTransparent }) => isTransparent ? "transparent" : theme.COLORS.BACKGROUND_700};
+
+   > svg {
+      color: #C4C4CC;
+   }
+
    border-radius: 5px;
 
    > input {
       width: 100%;
       height: 3rem;
-
-      background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
       border: none;
 
+      background-color: transparent;
+
       font-size: 1rem;
-      padding-left: 0.75rem;
+
+      margin-left: 1rem;
+
+      color: #7C7C8A;
    }
 `;
