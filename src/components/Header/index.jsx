@@ -6,6 +6,8 @@ import goBack from "../../assets/goBack.svg";
 import { AiOutlineSearch } from 'react-icons/ai';
 import { Receipt } from 'phosphor-react';
 
+import { useAuth } from "../../hooks/auth";
+
 import { Input } from "../Input";
 import { Button } from "../Button";
  
@@ -37,6 +39,7 @@ export function Header() {
                icon={Receipt}
             />
          </div>
+         
          <img src={goBack} />
          
       </Container>
