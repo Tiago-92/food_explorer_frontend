@@ -105,7 +105,8 @@ export function EditDish() {
 
             <div className="price">
                <span>Preço</span>
-               <Input 
+               <Input
+                  type="number" 
                   placeholder="R$ 00,00"
                   onChange={e => setPrice(e.target.value)}
                />

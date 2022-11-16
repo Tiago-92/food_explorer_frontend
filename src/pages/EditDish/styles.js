@@ -36,7 +36,8 @@ export const Container = styled.div`
          flex-direction: column;
          justify-content: center;
 
-         margin-top: 1.5rem;
+
+         margin-top: 2rem;
 
          > div {
             display: flex;
@@ -128,7 +129,6 @@ export const Container = styled.div`
    }
 
    @media(min-width: 1070px) { // versão web      
-      border: 1px solid gray;
 
       > button {
          background: none;
@@ -162,17 +162,23 @@ export const Container = styled.div`
          flex-direction: row;
          gap: 2rem;
 
+         margin-top: 2rem;
          margin-left: 7.69rem;
 
          > div {
-            
             > .button {
                width: 14.31rem;
                height: 3rem;
+
+               margin-top: 0.3rem;
             }
          }
 
          > .input {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+
             width: 53.69rem;
          }
       }
@@ -180,13 +186,16 @@ export const Container = styled.div`
       > .flex-row2 {
          display: flex;
          justify-content: space-between;
-
          margin-top: 2rem;
          margin-left: 7.69rem;
          margin-right: 7.81rem;
          
 
          > div {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+
             > .ingredients {
                display: flex;
                flex-wrap: wrap;
@@ -196,6 +205,58 @@ export const Container = styled.div`
 
             }
          }   
+      }
+
+      > .description {
+         width: 70rem;
+         display: flex;
+         flex-direction: column;
+
+         margin-top: 2rem;
+         margin-left: 7.69rem;
+
+         > textarea {
+            width: 100%;
+            height: 10.75rem;
+
+            margin-top: 0.3rem;
+
+            background: none;
+            border: 1px solid #FFFFFF;
+            border-radius: 5px;
+
+            font-size: 'Roboto', sans-serif;
+            color: #7C7C8A;
+
+            font-size: 1rem;
+            font-weight: 400;
+            padding: 0.87rem;
+         }
+      }
+
+      > .save-order {
+         width: 70rem;
+         display: flex;
+         justify-content: end;
+
+         margin-top: 1.5rem;
+         margin-left: 7.69rem;
+
+         > button {
+            background: #FFFFFF1A;
+            border: 1px solid #FFFFFF;
+            border-radius: 5px;
+
+            width: 22.31rem;
+            height: 3rem;
+
+            color: #FFFFFF;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 0.87rem;
+
+            margin-bottom: 7.68rem;
+         }
       }
    }
 `;
