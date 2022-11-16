@@ -12,6 +12,9 @@ import { Input } from "../Input";
 import { Button } from "../Button";
  
 export function Header() {
+
+   const { SignOut } = useAuth();
+
    return(
       <Container>
          <h1>
@@ -39,8 +42,10 @@ export function Header() {
                icon={Receipt}
             />
          </div>
-         
-         <img src={goBack} />
+
+         <button onClick={SignOut}>
+            <img src={goBack} />
+         </button>
          
       </Container>
    )

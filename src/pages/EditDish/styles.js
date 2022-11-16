@@ -2,157 +2,200 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 
-   @media(max-width: 1070px) {
+   @media(max-width: 1070px) { // versão mobile
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
+
+      width: 100vw;
 
       > h1 {
-         font-size: 1rem;
+         font-size: 2rem;
+
+         margin-top: 1rem;
       }
-
-      .flex-row {
-         display: flex;
-         flex-direction: column;
-         margin: 0;
-      }
-   }
-
-   > h1 {
-      margin-top: 1.5rem;
-      margin-left: 7.69rem;
-   }
-
-   > .button-arrow-left {
-      background: none;
-      border: none;
-
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-
-      margin-top: 2rem;
-      margin-left: 8.25rem;
-
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: ${({ theme }) => theme.COLORS.WHITE};
-
-      > img {
-         width: 12px;
-         height: 22px;
-      }
-   }
-
-   > .flex-row {
-      display: flex;
-      gap: 1rem;
-
-      margin-left: 7.69rem;
-
-      > div {
-         margin-top: 2rem;
-         
-         > span {
-            font-size: 1rem;
-            font-weight: 400;
-            font-family: 'Roboto', sans-serif;
-            color: ${({ theme }) => theme.COLORS.GRAY_800}; 
-         }
-
-         > button {
-            margin-top: 0.5rem;
-            background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
-            border: 1px solid white;
-            width: 14.31rem; 
-         }
-      }
-      
-      > .input {
-         display: flex;
-         flex-direction: column;
-         gap: 0.5rem;
-
-         width: 100%;
-         margin-right: 7.81rem;
-      }
-   }
-
-   > .description {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-
-      margin-top: 2.75rem;
-      margin-left: 7.69rem;
-
-      > textarea {
-         background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
-
-         width: 70rem;
-         height: 10.75rem;
-
-         font-size: 1rem;
-         font-weight: 400;
-         font-family: 'Roboto', sans-serif;
-
-         padding-top: 0.5rem;
-         padding-left: 0.5rem;
-
-         border-radius: 8px;
-      }
-   }
-
-   > .flex-row2 {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 1.5rem;
-
-      margin-top: 3.12rem;
-      margin-left: 7.69rem;
-      margin-right: 7.69rem;
-
-      > div {
-         > .ingredients {
-            display: flex;
-         
-            width: 53.69rem;
-            height: 3rem;
-            
-            margin-top: 0.7rem;
-            padding-top: 0.5rem;
-            padding-left: 0.5rem;
-            padding-bottom: 0.5rem;
-         
-            border: 1px solid white;
-         }
-      }
-
-      > .price {
-         display: flex;
-         flex-direction: column;
-         gap: 0.5rem;
-      }
-   }
-
-   > .save-order {
-      display: flex;
-      justify-content: end;
-
-      margin-top: 1.25rem;
-      margin-right: 7.81rem;
 
       > button {
-         width: 23.44rem;
-         height: 3rem;
+         background: none;
+         border: none;
 
-         background: rgba(255, 255, 255, 0.1);
-         border: 1px solid #ffff;
+         color: #E1E1E6;
+         font-size: 1.5rem;
+
+         display: flex;
+         align-items: center;
+         width: 150px;
+         justify-content: center;
+         gap: 0.62rem;
+      }
+
+      > .flex-row {
+         display: flex;
+         width: 20rem;
+         flex-direction: column;
+         justify-content: center;
+
+         margin-top: 1.5rem;
+
+         > div {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            > span {
+               display: none;
+            }
+
+            > button {
+               width: 20rem;
+            }
+         }
+
+         > .input {
+            margin-top: 0.94rem;
+         }
+ 
+      }
+
+      > .flex-row2 {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         width: 100%;
+
+         > div {
+            span {
+               display: none;
+            }
+
+            > .ingredients {
+               width: 20rem;
+               display: flex;
+               flex-direction: row;
+               flex-wrap: wrap;
+               justify-content: center;
+               margin-right: 20px;
+            }
+         }
+
+         > .price {
+            width: 20rem;
+            
+         }
+      }
+
+      > .description {
+
+         > span {
+            display: none;
+         }
+
+         > textarea {
+            width: 20rem;
+            height: 8rem;
+
+            margin-top: 1.5rem;
+
+            background: transparent;
+
+            color: #7C7C8A;
+            font-size: 1rem;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            padding: 0.8rem;
+         }
+      }
+
+      > .save-order {
+
+         > button {
+            background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
+            border: 1px solid #FFFFFF;
+            border-radius: 3px;
+
+            margin-top: 0.3rem;
+
+            color: white;
+            font-size: 0.87rem;
+
+            width: 20rem;
+            height: 30px;
+
+
+         }
       }
    }
 
-   > footer {
-      margin-top: 12.5rem;
+   @media(min-width: 1070px) { // versão web      
+      border: 1px solid gray;
+
+      > button {
+         background: none;
+         border: none;
+         
+         color: #E1E1E6;
+         font-size: 1.5rem;
+         font-family: 'Poppins', sans-serif;
+         font-weight: 500;
+
+         display: flex;
+         align-items: center;
+         gap: 11px;
+
+         margin-top: 2rem;
+         margin-left: 7.69rem;
+
+      }
+
+      > h1 {
+         font-size: 2rem;
+         font-family: 'Poppins', sans-serif;
+         font-weight: 500;
+
+         margin-top: 1.5rem;
+         margin-left: 7.69rem;
+      }
+
+      > .flex-row {
+         display: flex;
+         flex-direction: row;
+         gap: 2rem;
+
+         margin-left: 7.69rem;
+
+         > div {
+            
+            > .button {
+               width: 14.31rem;
+               height: 3rem;
+            }
+         }
+
+         > .input {
+            width: 53.69rem;
+         }
+      }
+
+      > .flex-row2 {
+         display: flex;
+         justify-content: space-between;
+
+         margin-top: 2rem;
+         margin-left: 7.69rem;
+         margin-right: 7.81rem;
+         
+
+         > div {
+            > .ingredients {
+               display: flex;
+               flex-wrap: wrap;
+               border: 1px solid #FFFFFF;
+               width: 52.31rem;
+               height: 3rem;
+
+            }
+         }   
+      }
    }
 `;
