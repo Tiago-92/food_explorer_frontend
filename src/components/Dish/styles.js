@@ -50,6 +50,8 @@ export const Container = styled.div`
             font-weight: 400;
             line-height: 1.4rem;
             text-align: center;
+
+            height: 2.75rem;
          }
 
          > span {
@@ -68,6 +70,8 @@ export const Container = styled.div`
             justify-content: center;
             gap: 1rem;
 
+            
+
             margin-top: 1.06rem;
 
             > div {
@@ -78,6 +82,14 @@ export const Container = styled.div`
 
                > a {
                   text-decoration: none;
+               }
+
+               > button {
+                  width: 120px;
+                  height: 40px;
+
+                  background-color: red;
+                  color: white;
                }
             }
          }

@@ -120,10 +120,14 @@ export const Content = styled.div`
          > .carousel {
             display: flex;
             flex-direction: row;
-            opacity: 65%;
             width: 70.12rem;
 
             overflow-x: auto;
+
+            > .item {
+               display: flex;
+               gap: 1.69rem;
+            }
          
          > .button-left {
             top: 0;

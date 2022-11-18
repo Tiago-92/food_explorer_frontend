@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState} from "react";
+import { useNavigate } from "react-router-dom";
 
 import { api } from "../../services/api";
 
@@ -17,6 +18,8 @@ export function EditDish() {
    const [newIngredient, setNewIngredient] = useState("");
    const [price, setPrice] = useState("");
    const [description, setDescription] = useState("");
+
+   const navigate = useNavigate();
 
    async function handleCreateDish() {
       if(!title) {
@@ -39,6 +42,7 @@ export function EditDish() {
       });
 
       alert("Novo prato criado com sucesso!")
+      navigate(-1);
    }
 
    function handleAddIngredients() {

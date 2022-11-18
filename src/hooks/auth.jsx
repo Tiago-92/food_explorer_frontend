@@ -38,7 +38,7 @@ function AuthProvider({ children }) {
 
       setData({});
    }
-
+   
    useEffect(() => { // carrega user e token armazenados no localStorage quando a página for renderizada 
       const user = localStorage.getItem("@foodexplorer:user");
       const token = localStorage.getItem("@foodexplorer:token");

@@ -1,4 +1,6 @@
-import { useRef } from "react";
+import { useState, useEffect, useRef } from "react";
+
+import { api } from "../../services/api";
 
 import { Container, Content } from "./styles";
 import arrow from "../../assets/arrow.svg";
@@ -9,6 +11,8 @@ import { Footer } from "../../components/Footer";
 import { Dish } from "../../components/Dish";
 
 export function Main() {
+   const [dishs, setDishs] = useState([]);
+  
    const carousel = useRef(null);
    const carousel_2 = useRef(null);
    const carousel_3 = useRef(null);
@@ -43,6 +47,14 @@ export function Main() {
       carousel_3.current.scrollLeft += carousel_3.current.offsetWidth
    };
 
+   useEffect(() => {
+      async function fetchDishs() {
+          const response = await api.get("/dishs?title");
+          setDishs(response.data)
+      }         
+      fetchDishs();
+  }, [])
+
    return(
       <Container>
         
@@ -72,21 +84,17 @@ export function Main() {
                      <img src={arrow} />
                   </button>
 
-                  <div className="item">
-                     <Dish/>
-                  </div>
 
                   <div className="item">
-                     <Dish/>
-                  </div>
-
-                  <div className="item">
-                     <Dish/>
-                  </div>
-
-                  <div className="item">
-                     <Dish/>
-                  </div>
+                     {
+                        dishs.map(dish => (
+                           <Dish
+                              key={String(dish.id)}
+                              data={dish}
+                           />
+                        )) 
+                     }
+                  </div>  
                </div>                      
             </div> 
          </Content>
@@ -105,19 +113,7 @@ export function Main() {
                      </button>
 
                      <div className="item">
-                        <Dish/>
-                     </div>
-
-                     <div className="item">
-                        <Dish/>
-                     </div>
-
-                     <div className="item">
-                        <Dish/>
-                     </div>
-
-                     <div className="item">
-                        <Dish/>
+                        
                      </div>
                   </div>
                </div>         
@@ -137,19 +133,19 @@ export function Main() {
                   </button>
 
                   <div className="item">
-                     <Dish/>
+                
                   </div>
 
                   <div className="item">
-                     <Dish/>
+         
                   </div>
 
                   <div className="item">
-                     <Dish/>
+          
                   </div>
 
                   <div className="item">
-                     <Dish/>
+                
                   </div>
                </div>
             </div>         
