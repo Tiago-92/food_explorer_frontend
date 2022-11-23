@@ -7,7 +7,7 @@ export const AuthContext = createContext({});
 function AuthProvider({ children }) {
    const [data, setData] = useState({});
 
-   async function SignIn({ email, password}) {
+   async function SignIn({ email, password }) {
       // tenta fazer a autentitacação, se der errado vai mostrar uma mensagem de erro.
       try {
 
@@ -20,7 +20,7 @@ function AuthProvider({ children }) {
 
          // inserir o token de autenticação em todas as requisições
          api.defaults.headers.common['Authorization'] = `Bearer ${token}`; 
-         setData({ user, token})
+         setData({ user, token })
 
       } catch (error){
          if(error.response) {
@@ -31,10 +31,33 @@ function AuthProvider({ children }) {
       }
 
    }
+
+   async function updateImageDish({ dishFile }) {
+
+      try {
+
+         if (dishFile) {
+            const fileUploadForm = new FormData();
+            fileUploadForm.append("dishimage", dishFile);
+
+            const response = await api.patch("/dishimage", fileUploadForm);
+            dish.img = response.data.img;
+         
+         }
+      } catch {
+         if (error.response) {
+            alert(error.response.data.message)
+        } else {
+            alert("Não foi possível atualizar a imagem do prato.")
+        }
+      }
+   }
+
+
    // função para sair da aplicação
    function SignOut() {
-      localStorage.removeItem("@rocketmovies:user");
-      localStorage.removeItem("@rocketmovies:token");
+      localStorage.removeItem("@foodexplorer:user");
+      localStorage.removeItem("@foodexplorer:token");
 
       setData({});
    }
@@ -57,6 +80,7 @@ function AuthProvider({ children }) {
       <AuthContext.Provider value={{ 
           SignIn,
           SignOut,
+          updateImageDish,
           user: data.user 
           }}
       >

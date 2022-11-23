@@ -20,6 +20,8 @@ export function SignUp() {
 
     function handleSignUp() {
         SignIn({ email, password })
+
+        alert("Testando")
     }
 
     return (

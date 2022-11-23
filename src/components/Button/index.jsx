@@ -1,9 +1,8 @@
 import { Container } from "./styles";
 
-export function Button({ icon: Icon, title, img, onClick, ...rest }) {
+export function Button({ icon: Icon, title, ...rest }) {
    return(
       <Container 
-         type="submit"
          {...rest}
       >
          {Icon && <Icon size={19.5} />}

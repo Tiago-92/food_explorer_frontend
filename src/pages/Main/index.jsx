@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 
 import { api } from "../../services/api";
 
+import { Link } from "react-router-dom";
+
 import { Container, Content } from "./styles";
 import arrow from "../../assets/arrow.svg";
 import flavors from "../../assets/flavors.svg";
@@ -12,7 +14,7 @@ import { Dish } from "../../components/Dish";
 
 export function Main() {
    const [dishs, setDishs] = useState([]);
-  
+
    const carousel = useRef(null);
    const carousel_2 = useRef(null);
    const carousel_3 = useRef(null);
@@ -71,6 +73,12 @@ export function Main() {
          </div>
 
          <Content>
+
+            <button>
+               <Link to="/edit">
+                  Criar prato
+               </Link>
+            </button>
 
             <h1>Pratos Principais</h1>
 

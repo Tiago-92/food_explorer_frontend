@@ -165,15 +165,6 @@ export const Container = styled.div`
          margin-top: 2rem;
          margin-left: 7.69rem;
 
-         > div {
-            > .button {
-               width: 14.31rem;
-               height: 3rem;
-
-               margin-top: 0.3rem;
-            }
-         }
-
          > .input {
             display: flex;
             flex-direction: column;
@@ -259,4 +250,54 @@ export const Container = styled.div`
          }
       }
    }
+`;
+
+export const Upload = styled.div`
+   display: flex;
+   flex-direction: column;
+   gap: 0.5rem;
+
+   > span {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #C4C4CC;
+   }
+   
+   label {
+      width: 14.31rem;
+      height: 3rem;
+
+      border: 1px solid #FFFFFF;
+      border-radius: 5px;
+
+      font-family: 'Popins', sans-serif;
+      font-size: 0.87rem;
+      font-weight: 500;
+      color: #FFFFFF;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      cursor: pointer;
+
+      > svg {
+         width: 24px;
+         height: 24px;
+      }
+   }
+
+   label:hover {
+      background: ${({ theme }) => theme.COLORS.BACKGROUND_700};
+   }
+
+   > input[type="file"] {
+      display: none;
+   }
+
+   @media(max-width: 1070px) {
+      align-items: center;
+   }    
 `;

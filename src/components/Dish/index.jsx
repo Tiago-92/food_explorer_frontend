@@ -13,16 +13,10 @@ export function Dish({ data, ...rest }) {
    
    const imageURL = `${api.defaults.baseURL}/files/${data.img}`;
 
-   /* Tentei chamar o controller que eu eu criei no back-end aqui, mas não encontei uma forma de vincular o id do prato quando eu
-      eu chamo essa função lá em baixo no botão
-
-     async function handleAddOrder() {
-
-      await api.post("/myorder?id");
-   }
-   */
    return(
-      <Container {...rest}>
+      <Container 
+         {...rest}
+      >
          <div className="carousel">
             <div className="dish">
                <div>
@@ -52,10 +46,8 @@ export function Dish({ data, ...rest }) {
                      <Button
                         type="submit"
                         title="Incluir"
-                       // onClick={handleAddOrder}
                      />
                   </div>
-                  <div>{data.id}</div>
                </div>                     
             </div>
          </div>

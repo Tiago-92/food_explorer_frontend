@@ -14,7 +14,8 @@ export const Container = styled.div`
     border-radius: 10px;
     
         > button {
-            margin-left: 90px; 
+            margin-left: 90px;
+            margin-bottom: 10px; 
             position: absolute;
             display: flex;
             

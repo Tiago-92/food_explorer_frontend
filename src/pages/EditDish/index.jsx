@@ -1,16 +1,18 @@
-import { useState} from "react";
+import { useState } from "react";
+
 import { useNavigate } from "react-router-dom";
 
 import { api } from "../../services/api";
 
-import { Container } from "./styles";
+import { Container, Upload } from "./styles";
 import arrowLeft from "../../assets/arrowLeft.svg"
+import { FiUpload } from "react-icons/fi";
 
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
-import { Button } from "../../components/Button";
 import { NewIngredients } from "../../components/NewIngredients";
 import { Footer } from "../../components/Footer";
+
 
 export function EditDish() {
    const [title, setTitle] = useState("");
@@ -18,9 +20,19 @@ export function EditDish() {
    const [newIngredient, setNewIngredient] = useState("");
    const [price, setPrice] = useState("");
    const [description, setDescription] = useState("");
+   const [img, setImg] = useState(null);
 
    const navigate = useNavigate();
 
+   function handleAddIngredients() {
+      setIngredients(prevState => [...prevState, newIngredient]);
+      setNewIngredient("");
+   }
+
+   function handleRemoveIngredient(deleted) {
+      setIngredients(prevState => prevState.filter(ingredient => ingredients !== deleted));
+  }
+  
    async function handleCreateDish() {
       if(!title) {
          alert("Digite um título para o seu prato!")
@@ -34,25 +46,20 @@ export function EditDish() {
          alert("Digite uma descrição para o seu prato!")
       }
 
-      await api.post("/dishs", {
-         title,
-         price,
-         description,
-         ingredients
-      });
+      const formData = new FormData();
+        formData.append("img", img);
+        formData.append("title", title);
+        formData.append("description", description);
+        formData.append("price", price);
 
-      alert("Novo prato criado com sucesso!")
-      navigate(-1);
-   }
+        ingredients.map(ingredient => (
+         formData.append("ingredients", ingredient)
+     ))
 
-   function handleAddIngredients() {
-      setIngredients(prevState => [...prevState, newIngredient]);
-      setNewIngredient("");
-   }
-
-   function handleRemoveIngredient(deleted) {
-      setIngredients(prevState => prevState.filter(ingredient => ingredients !== deleted));
-  }
+        api.post("/dishs", formData)
+        alert("Prato cadastrado com sucesso");
+        navigate("/")
+      }
 
    return(
       <Container>
@@ -66,13 +73,15 @@ export function EditDish() {
          <h1>Editar Prato</h1>
          
          <div className="flex-row">
-            <div>
-               <span>Imagem do prato</span>
-               <div className="button">
-                  <Button title="Selecionar imagem" />
-               </div>
-            </div>
-            
+            <Upload>
+                  <span>Imagem do Prato</span>
+                  <label id="file" htmlFor="img"><FiUpload/>Escolha um arquivo</label>
+                  <input className="file"
+                     id="img"
+                     type="file"
+                     onChange={e => setImg(e.target.files[0])}
+                  />
+            </Upload>
             <div className="input">
                <span>Nome</span>
                <Input
@@ -128,7 +137,8 @@ export function EditDish() {
          </div>
 
          <div className="save-order">
-            <button onClick={handleCreateDish}>
+            <button 
+               onClick={handleCreateDish}>
                Adicionar pedido
             </button>
          </div>
