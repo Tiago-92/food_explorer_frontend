@@ -11,6 +11,22 @@ export const Container = styled.main`
       content:"header";
    }
 
+   > header {
+      width: 100%;
+      height: 200px;
+      border: 1px solid gray;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      > input {
+         width: 300px;
+         height: 48px;
+         color: white;
+      }
+   }
+
    > .flavors {
       display: flex;
       flex-direction: row;

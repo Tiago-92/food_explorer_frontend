@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { api } from "../../services/api";
 
 import { Container, Upload } from "./styles";
-import arrowLeft from "../../assets/arrowLeft.svg"
+import arrowLeft from "../../assets/arrowLeft.svg";
 import { FiUpload } from "react-icons/fi";
 
 import { Header } from "../../components/Header";
@@ -32,6 +32,10 @@ export function EditDish() {
    function handleRemoveIngredient(deleted) {
       setIngredients(prevState => prevState.filter(ingredient => ingredients !== deleted));
   }
+
+   function comeBack() {
+      navigate(-1);
+   }
   
    async function handleCreateDish() {
       if(!title) {
@@ -52,7 +56,7 @@ export function EditDish() {
         formData.append("description", description);
         formData.append("price", price);
 
-        ingredients.map(ingredient => (
+         ingredients.map(ingredient => (
          formData.append("ingredients", ingredient)
      ))
 
@@ -63,9 +67,13 @@ export function EditDish() {
 
    return(
       <Container>
+         
          <Header />
 
-         <button className="button-arrow-left">
+         <button 
+            className="button-arrow-left"
+            onClick={comeBack}
+         >
             <img src={arrowLeft} />
             voltar
          </button>
@@ -75,7 +83,12 @@ export function EditDish() {
          <div className="flex-row">
             <Upload>
                   <span>Imagem do Prato</span>
-                  <label id="file" htmlFor="img"><FiUpload/>Escolha um arquivo</label>
+                  <label 
+                     id="file" 
+                     htmlFor="img">
+                     <FiUpload/>
+                     Escolha um arquivo
+                  </label>
                   <input className="file"
                      id="img"
                      type="file"
@@ -144,6 +157,7 @@ export function EditDish() {
          </div>
 
          <Footer />
+         
       </Container>
    )
 }

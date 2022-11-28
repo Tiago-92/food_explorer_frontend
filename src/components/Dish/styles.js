@@ -70,7 +70,10 @@ export const Container = styled.div`
             justify-content: center;
             gap: 1rem;
 
-            
+            > button {
+               background: none;
+               border: none;
+            }            
 
             margin-top: 1.06rem;
 

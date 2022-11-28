@@ -12,8 +12,10 @@ import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { Dish } from "../../components/Dish";
 
+
 export function Main() {
    const [dishs, setDishs] = useState([]);
+   const [search, setSearch] = useState("");
 
    const carousel = useRef(null);
    const carousel_2 = useRef(null);
@@ -51,16 +53,15 @@ export function Main() {
 
    useEffect(() => {
       async function fetchDishs() {
-          const response = await api.get("/dishs?title");
+          const response = await api.get(`/dishs?title${search}`);
           setDishs(response.data)
       }         
       fetchDishs();
-  }, [])
+  }, [search])
 
    return(
       <Container>
-        
-         <Header />
+         <Header search={setSearch}/>
 
          <div className="flavors">
             <img src={flavors} />

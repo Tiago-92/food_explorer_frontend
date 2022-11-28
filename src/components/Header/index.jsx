@@ -11,7 +11,7 @@ import { useAuth } from "../../hooks/auth";
 import { Input } from "../Input";
 import { Button } from "../Button";
  
-export function Header() {
+export function Header({ search }) {
 
    const { SignOut } = useAuth();
 
@@ -32,6 +32,7 @@ export function Header() {
                type="text"
                placeholder="Busque pelas opções de prato"
                icon={AiOutlineSearch}
+               onChange={e => {search(e.target.value)}}
             />
          </div>
           
