@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
+import { useNavigate } from "react-router-dom";
+
 import { api } from "../../services/api";
 
 import { Link } from "react-router-dom";
@@ -12,14 +14,20 @@ import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { Dish } from "../../components/Dish";
 
-
 export function Main() {
    const [dishs, setDishs] = useState([]);
    const [search, setSearch] = useState("");
 
+   //const navigate = useNavigate();
+
    const carousel = useRef(null);
    const carousel_2 = useRef(null);
    const carousel_3 = useRef(null);
+
+   /*function handleDetails(id) {
+      navigate(`/details/${id}`)
+   }
+   */
 
    const handleLeftClickDish = (e) => {
       e.preventDefault();
@@ -53,8 +61,9 @@ export function Main() {
 
    useEffect(() => {
       async function fetchDishs() {
-          const response = await api.get(`/dishs?title${search}`);
+          const response = await api.get(`/dishs?title=${search}`);
           setDishs(response.data)
+          console.log(search)
       }         
       fetchDishs();
   }, [search])
@@ -100,9 +109,11 @@ export function Main() {
                            <Dish
                               key={String(dish.id)}
                               data={dish}
+                              //onClick={() => handleDetails(dish.id)}
                            />
-                        )) 
+                        ))
                      }
+      
                   </div>  
                </div>                      
             </div> 

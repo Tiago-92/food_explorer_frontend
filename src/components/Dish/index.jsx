@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { useNavigate } from "react-router-dom";
+
 import { api } from "../../services/api";
 
 import { Container } from "./styles";
@@ -13,10 +15,14 @@ import { Button } from "../../components/Button";
 
 export function Dish({ data, ...rest }) {
    const [quantity, setQuantity] = useState(0);
-
-   const id = data.id
+   
+   const navigate = useNavigate();
 
    const imageURL = `${api.defaults.baseURL}/files/${data.img}`;
+
+   function handleDetails(id) {
+      navigate(`/details/${data.id}`)
+   }   
 
    function addQuantity() {
       setQuantity(quantity + 1)
@@ -27,7 +33,7 @@ export function Dish({ data, ...rest }) {
    }
 
    async function handleAddDishToMyOrder() {
-      await api.post(`/myorder/?id=${id}`, {
+      await api.post(`/myorder/?id=${data.id}`, {
          quantity,
       });
 
@@ -46,11 +52,15 @@ export function Dish({ data, ...rest }) {
                   </button>
                </div>
 
-               <img 
-                  src={imageURL}
-                  alt={`imagem de ${data.title}`} 
-               />
-
+               <button
+                  onClick={handleDetails}
+               >
+                  <img 
+                     src={imageURL}
+                     alt={`imagem de ${data.title}`} 
+                  />
+               </button>
+      
                <h3>{data.title}</h3>
 
                <p>{data.description}</p>
@@ -64,7 +74,9 @@ export function Dish({ data, ...rest }) {
                   >
                      <img src={acc} />
                   </button>
-                  {quantity}
+                  <span>
+                     {quantity}
+                  </span>
                   <button
                      onClick={addQuantity}
                   >

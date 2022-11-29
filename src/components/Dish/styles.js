@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+   background-color: #000000A6;
+   border: none;
+
    > .carousel {
       > .dish {
          display: flex;
@@ -10,11 +13,14 @@ export const Container = styled.div`
          width: 18.75rem;
          height: 32rem;
 
-         background-color: #000000A6;
-
-         > img {
-            width: 11rem;
-            height: 11rem;
+         > button {
+            background: none;
+            border: none;
+            
+            > img {
+               width: 11rem;
+               height: 11rem;
+            }
          }
 
          > div {
@@ -41,6 +47,7 @@ export const Container = styled.div`
 
             font-size: 1.5rem;
             font-weight: 700;
+            color: #E1E1E6;
          }
 
          > p {
@@ -50,6 +57,7 @@ export const Container = styled.div`
             font-weight: 400;
             line-height: 1.4rem;
             text-align: center;
+            color: #C4C4CC;
 
             height: 2.75rem;
          }
@@ -73,7 +81,13 @@ export const Container = styled.div`
             > button {
                background: none;
                border: none;
-            }            
+            }
+            
+            > span {
+               color: #E1E1E6;
+               font-size: 1.75rem;
+               
+            }
 
             margin-top: 1.06rem;
 

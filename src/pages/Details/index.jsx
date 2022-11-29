@@ -26,11 +26,12 @@ export function Details() {
 
    const params = useParams();
 
+   const imageURL = data && `${api.defaults.baseURL}/files/${data.img}`
+
    useEffect(() => {
       async function fetchDish() {
          const response = await api.get(`/dishs/${params.id}`);
          setData(response.data)
-         console.log(response.data)
       }
 
       fetchDish();
@@ -44,7 +45,7 @@ export function Details() {
             data &&
             
          <Content>
-               <img src={food_1} alt="Salada Ravanello"/>
+               <img src={imageURL} alt="Salada Ravanello"/>
 
                <div className="column">
                   <h1>{data.title}</h1>
