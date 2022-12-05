@@ -47,19 +47,19 @@ export const Content = styled.main` // mobile-first
       }
 
       > .ingredients {
-         display: flex;
-         gap: 1.5rem;
-         margin-top: 1rem;
 
          > div {
             display: flex;
             flex-direction: column;
-            gap: 2px;
+         }
 
-            > img {
-               width: 40px;
-               height: 40px;
-            }
+         display: flex;
+         gap: 1.5rem;
+         margin-top: 1rem;
+
+         img {
+            width: 40px;
+            height: 40px;
          }
       }
 

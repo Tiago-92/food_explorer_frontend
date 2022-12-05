@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { api } from "../../services/api";
 
@@ -48,6 +48,14 @@ export function EditDish() {
 
       if(!description) {
          alert("Digite uma descrição para o seu prato!")
+      }
+
+      if(!ingredients) {
+         alert("Digite os ingredientes do seu prato. Máximo: 4 itens!")
+      }
+
+      if(!img) {
+         alert("Selecione uma imagem para o seu prato!")
       }
 
       const formData = new FormData();

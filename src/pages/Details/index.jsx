@@ -7,27 +7,32 @@ import { api } from "../../services/api";
 import { Header } from "../../components/Header";
 import { Button } from "../../components/Button";
 import { Footer } from "../../components/Footer";
+import { Ingredients } from "../../components/Ingredients";
 
 import { Container, Content } from "./styles";
-import arrowLeft from "../../assets/arrowLeft.svg";
 
-import food_1 from "../../assets/food_1.png";
-import lettuce from "../../assets/lettuce.png";
-import tomato from "../../assets/tomato.png";
-import radish from "../../assets/radish.png";
-import bread from "../../assets/bread.png";
-
+import def4ult from "../../assets/Imagens/def4ult.png";
 import acc from "../../assets/acc.svg";
 import add from "../../assets/add.svg";
 import order from "../../assets/order.svg";
 
 export function Details() {
    const [data, setData] = useState(null);
-
+ 
    const params = useParams();
 
    const imageURL = data && `${api.defaults.baseURL}/files/${data.img}`
 
+   const ingredientsIMG = data && data.ingredients[0] ? data && `${api.defaults.baseURL}/files/${data.ingredients[0].img}` : def4ult; 
+   const ingredientsIMG1 = data && data.ingredients[1] ? data && `${api.defaults.baseURL}/files/${data.ingredients[1].img}` : def4ult; 
+   const ingredientsIMG2 = data && data.ingredients[2] ? data && `${api.defaults.baseURL}/files/${data.ingredients[2].img}` : def4ult;
+   const ingredientsIMG3 = data && data.ingredients[3] ? data && `${api.defaults.baseURL}/files/${data.ingredients[3].img}` : def4ult;
+
+   const ingredientesName = data && data.ingredients[0] ? data && data.ingredients[0].name : '';
+   const ingredientesName1 = data && data.ingredients[1] ? data && data.ingredients[1].name : '';
+   const ingredientesName2 = data && data.ingredients[2] ? data && data.ingredients[2].name : '';
+   const ingredientesName3 = data && data.ingredients[3] ? data && data.ingredients[3].name : '';
+  
    useEffect(() => {
       async function fetchDish() {
          const response = await api.get(`/dishs/${params.id}`);
@@ -44,7 +49,7 @@ export function Details() {
          {
             data &&
             
-         <Content>
+            <Content>
                <img src={imageURL} alt="Salada Ravanello"/>
 
                <div className="column">
@@ -52,22 +57,26 @@ export function Details() {
                   <p>{data.description}</p>
 
                   <div className="ingredients">
+
                      <div>
-                        <img src={lettuce} alt="alface" />
-                        alface
+                        <img src={ingredientsIMG} />
+                        <span>{ingredientesName}</span>
                      </div>
+
                      <div>
-                        <img src={tomato} alt="tomate" />
-                        tomate
+                        <img src={ingredientsIMG1} />
+                        <span>{ingredientesName1}</span>
                      </div>
+
                      <div>
-                        <img src={radish} alt="rabanete" />
-                        rabanete
+                        <img src={ingredientsIMG2} />
+                        <span>{ingredientesName2}</span>
                      </div>
+
                      <div>
-                        <img src={bread} alt="pão naan" />
-                        pão naan 
-                     </div> 
+                        <img src={ingredientsIMG3} />
+                        <span>{ingredientesName3}</span>
+                     </div>
                   </div>
 
                   <div className="value">
