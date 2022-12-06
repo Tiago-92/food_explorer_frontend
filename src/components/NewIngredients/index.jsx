@@ -5,7 +5,6 @@ export function NewIngredients({ isNew, value, onClick, ...rest }) {
    return(
       <Container isNew={isNew}>
          <input
-         
             value={value}
             readOnly={!isNew}
             {...rest} 

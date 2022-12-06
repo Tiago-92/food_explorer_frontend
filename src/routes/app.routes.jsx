@@ -2,18 +2,18 @@ import { Routes, Route } from 'react-router-dom';
 
 import { Main } from '../pages/Main';
 import { Details } from '../pages/Details';
-import { EditDish } from '../pages/EditDish';
+import { CreateDish } from '../pages/CreateDish';
 import { Order } from '../pages/Order';
-import { Payment } from '../pages/Payment';
+import { FinalizeOrder } from '../pages/FinalizeOrder';
 
 export function AppRoutes() {
    return (
       <Routes>
          <Route path="/" element={<Main />} />
          <Route path="/details/:id" element={<Details />} />
-         <Route path="/edit" element={<EditDish />} />
+         <Route path="/create" element={<CreateDish />} />
          <Route path="/order" element={<Order />} />
-         <Route path="/payment" element={<Payment />} />
+         <Route path="/finalize" element={<FinalizeOrder />} />
       </Routes>
    )
 }

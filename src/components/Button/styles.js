@@ -8,6 +8,7 @@ export const Container = styled(Link)`
 
    display: flex;
    justify-content: center;
+   gap: 0.69rem;
       
    padding-top: 0.75rem;
 

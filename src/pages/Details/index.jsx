@@ -6,8 +6,6 @@ import { api } from "../../services/api";
 
 import { Header } from "../../components/Header";
 import { Button } from "../../components/Button";
-import { Footer } from "../../components/Footer";
-import { Ingredients } from "../../components/Ingredients";
 
 import { Container, Content } from "./styles";
 

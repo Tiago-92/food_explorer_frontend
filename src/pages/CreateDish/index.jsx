@@ -14,7 +14,7 @@ import { NewIngredients } from "../../components/NewIngredients";
 import { Footer } from "../../components/Footer";
 
 
-export function EditDish() {
+export function CreateDish() {
    const [title, setTitle] = useState("");
    const [ingredients, setIngredients] = useState([]);
    const [newIngredient, setNewIngredient] = useState("");
@@ -51,7 +51,7 @@ export function EditDish() {
       }
 
       if(!ingredients) {
-         alert("Digite os ingredientes do seu prato. Máximo: 4 itens!")
+         alert("Digite os ingredientes do seu prato!")
       }
 
       if(!img) {
