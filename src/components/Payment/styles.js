@@ -62,6 +62,31 @@ export const Container = styled.div`
          padding-top: 3.56rem;
       }
 
+      > .await, 
+         .accept, 
+         .delivered {
+            
+         display: flex;
+         flex-direction: column;
+        
+         align-items: center;
+         padding-top: 4.44rem;
+         
+         > img {
+            width: 6.5rem;
+            height: 6.5rem;
+         }
+
+         > span {
+            margin-top: 3.06rem;
+
+            font-size: 1.5rem;
+            font-weight: 400;
+            font-family: 'Roboto', sans-serif;
+            color: ${({ theme }) => theme.COLORS.GRAY_800};
+         }
+      }
+
       > .card {
          display: flex;
          flex-direction: column;
@@ -89,6 +114,8 @@ export const Container = styled.div`
                margin-top: 0.5rem;
 
                padding: 0.87rem;
+
+               color: ${({ theme }) => theme.COLORS.GRAY_800};
             }
          }
 
@@ -119,6 +146,8 @@ export const Container = styled.div`
                   margin-top: 0.5rem;
 
                   padding: 0.87rem;
+
+                  color: ${({ theme }) => theme.COLORS.GRAY_800};
                }
             }
          }

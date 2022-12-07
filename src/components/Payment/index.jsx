@@ -7,17 +7,46 @@ import { Button } from "../Button";
 import pixLogo from "../../assets/pix.svg";
 import cardImage from "../../assets/card.svg";
 import qrCode from "../../assets/qrCode.png";
+import clock from "../../assets/clock.svg";
+import checkCircle from "../../assets/checkCircle.svg";
+import delivered from "../../assets/delivered.svg";
 import { Receipt } from 'phosphor-react';
 
 export function Payment() {
    const [isCredit, setIsCredit] = useState(false);
+   const [awaitPayment, setAwaitPayment] = useState(false);
+   const [paymentAccepted, setPaymentAccepted] = useState(false);
+   const [orderDelivered, setOrderDelivered] = useState(false);
 
    function showCredit() {
       setIsCredit(true)
+      setAwaitPayment(null)
    }
 
    function showPix() {
       setIsCredit(false)
+      setAwaitPayment(null)
+   }
+
+   function showCheckCircle() {
+      setAwaitPayment(true)
+      setIsCredit(null)
+      showPaymentAccept()
+   }
+
+   function showPaymentAccept () {
+      setTimeout(() => {
+         setPaymentAccepted(true)
+         setAwaitPayment(null)
+         showOrderDelivered()
+    }, 5000);
+   }
+
+   function showOrderDelivered() {
+      setTimeout(() => {
+         setOrderDelivered(true)
+         setPaymentAccepted(null)
+      }, 5000);
    }
 
    return (
@@ -47,21 +76,52 @@ export function Payment() {
                   <img src={qrCode} />
                </div>   
             }
+
+            {awaitPayment && 
+               <div className="await">
+                  <img src={clock} />
+                  <span>Aguardando pagamento no caixa</span>
+               </div>   
+            }
+
+            {paymentAccepted && 
+               <div className="accept">
+                  <img src={checkCircle} />
+                  <span>Pagamento aprovado!</span>
+               </div>
+            }
+
+            {orderDelivered &&
+               <div className="delivered">
+                  <img src={delivered} />
+                  <span>Pedido entregue!</span>
+               </div> 
+            }   
          
             {isCredit &&
                <div className="card"> 
                   <div className="number">
                      <span>Número do cartão</span>
-                     <input type="number" placeholder="0000 0000 0000 0000"/>
+                     <input 
+                        type="number"
+                        placeholder="0000 0000 0000 0000"
+                     />
                   </div>
                   <div className="security">
                      <div>
                         <span>Validade</span>
-                        <input placeholder="04/25"/>
+                        <input
+                           placeholder="04/25"
+                           maxLength="5"
+                        />
                      </div>
                   <div>
                      <span>CVC</span>
-                     <input type="number" placeholder="04/25"/>
+                     <input 
+                        type="password" 
+                        placeholder="***"
+                        maxLength="3"
+                     />
                   </div>
                   </div>
 
@@ -69,6 +129,7 @@ export function Payment() {
                      <Button 
                         title="Finalizar Compra"
                         icon={Receipt}
+                        onClick={showCheckCircle}
                      />
                   </div>
                  
