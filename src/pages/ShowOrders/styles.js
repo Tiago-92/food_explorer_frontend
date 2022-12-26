@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 height: 100vh;
-
    > table {
      width: 70.75rem;
      margin-top: 2.12rem;
@@ -21,21 +20,17 @@ height: 100vh;
       font-weight: 700;
       text-align: start;
       color: #E1E1E6;
-
       height: 4rem;
       padding-left: 1.5rem;
-
    }
 
    > table tbody td {
       height: 3.37rem;
-
       font-size: 14px;
       font-weight: 400;
       font-family: 'Roboto', sans-serif;
       color: #C4C4CC;
       padding-left: 1.5rem;
-
       li::marker{color:red}
    }
 
@@ -77,12 +72,11 @@ height: 100vh;
          margin-left: 3px;
          margin-right: 3px;
       }
-
       > footer {
          margin: 0
       }
    }
-
+   
    > h1 {
       margin-top: 2.12rem;
       margin-left: 7.69rem;

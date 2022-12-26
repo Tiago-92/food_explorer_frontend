@@ -35,6 +35,7 @@ export function Details() {
       async function fetchDish() {
          const response = await api.get(`/dishs/${params.id}`);
          setData(response.data)
+         console.log(response.data)
       }
 
       fetchDish();

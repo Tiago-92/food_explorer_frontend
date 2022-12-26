@@ -1,17 +1,25 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+   > h1 {
+      display: flex;
+      justify-content: center;
+   }
+
    > .payment {
-      width: 33.12rem;
+      width: 21.87rem;
       height: 28.87rem;
       border: 1px solid gray;
+
+      
 
       margin-top: 2rem;
 
       > .pix-our-credit {
          display: flex;
 
-         > .buttonPix, .buttonCredit {
+         > .buttonPix, 
+            .buttonCredit {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -92,7 +100,8 @@ export const Container = styled.div`
          flex-direction: column;
 
          margin-top: 3.69rem;
-         margin-left: 5.69rem;
+      
+         
 
          > .number {
             display: flex;
@@ -159,6 +168,30 @@ export const Container = styled.div`
             margin-top: 2.31rem;
          }
       }
+   }
+
+   @media(min-width: 1070px) {
+      > h1 {
+         justify-content: start;
+      }
+
+      > .payment {
+         width: 33.12rem;
+         height: 28.87rem;
+         border: 1px solid gray;
+
+         margin-top: 2rem;
+
+         
+         > .card {
+            display: flex;
+            flex-direction: column;
+
+            margin-top: 3.69rem;
+            margin-left: 5.69rem;
+         }
+         
+      } 
    }
 `;
   

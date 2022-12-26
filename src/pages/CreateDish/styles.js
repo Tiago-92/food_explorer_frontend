@@ -16,6 +16,20 @@ export const Container = styled.div`
          margin-top: 1rem;
       }
 
+      .not-authorized  {
+         width: 21.87rem;
+         height: 70vh;
+
+         justify-content: center;
+         align-items: center;
+         display: flex;
+
+         > h1 {
+            text-align: center;
+            font-size: 22px;
+         }
+      }
+
       > button {
          background: none;
          border: none;
@@ -36,25 +50,55 @@ export const Container = styled.div`
          flex-direction: column;
          justify-content: center;
 
-
          margin-top: 2rem;
 
-         > div {
+         > .input {
+            width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 10px;
 
-            > span {
-               display: none;
+            > .category {
+               margin-top: 1rem;
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               gap: 0.5rem;
+
+               > p {
+                  font-size: 1rem;
+                  font-family: 'Roboto', sans-serif;
+                  font-weight: 400;
+                  color: #C4C4CC;                  
+               }
+            
+               > select {
+                  width: 100%;
+                  height: 3rem;
+
+                  background: ${({ theme }) => theme.COLORS.BACKGROUND_700};
+                  color: #FFFFFF;
+                  font-size: 1rem;
+
+                  border: 1px solid white;
+                  border-radius: 5px;
+
+               }
             }
 
-            > button {
-               width: 20rem;
-            }
-         }
+            > .title {
+               margin-top: 1rem;
+               display: flex;
+               flex-direction: column;
+               gap: 0.5rem;
+               align-items: center;
 
-         > .input {
-            margin-top: 0.94rem;
+               > p {
+                  font-size: 1rem;
+                  font-family: 'Roboto', sans-serif;
+                  font-weight: 400;
+                  color: #C4C4CC;                  
+               }
+            }
          }
  
       }
@@ -66,7 +110,7 @@ export const Container = styled.div`
          width: 100%;
 
          > div {
-            span {
+            p {
                display: none;
             }
 
@@ -87,16 +131,23 @@ export const Container = styled.div`
       }
 
       > .description {
+         margin-top: 1rem;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
 
-         > span {
-            display: none;
+         > p {
+            font-size: 1rem;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            color: #C4C4CC; 
          }
 
          > textarea {
             width: 20rem;
             height: 8rem;
 
-            margin-top: 1.5rem;
+            margin-top: 0.5rem;
 
             background: transparent;
 
@@ -109,7 +160,8 @@ export const Container = styled.div`
       }
 
       > .save-order {
-
+         margin-top: 1rem;
+         
          > button {
             background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
             border: 1px solid #FFFFFF;
@@ -148,6 +200,20 @@ export const Container = styled.div`
 
       }
 
+      > .not-authorized {
+         width: 100%;
+         height: 73vh;
+
+         > h1 {
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 1.87rem;
+         }
+      }
+
       > h1 {
          font-size: 2rem;
          font-family: 'Poppins', sans-serif;
@@ -167,10 +233,59 @@ export const Container = styled.div`
 
          > .input {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             gap: 0.3rem;
 
             width: 53.69rem;
+            height: 3rem;
+
+            > .category {
+               display: flex;
+               flex-direction: column;
+               gap: 0.5rem;
+               width: 11.25rem;
+               height: 100vh;
+
+               margin-right: 20px;
+
+               > p {
+                  font-size: 1rem;
+                  font-family: 'Roboto', sans-serif;
+                  font-weight: 400;
+                  color: #C4C4CC;
+               }
+
+               > select {
+                  height: 3rem;
+
+                  border: 1px solid white;
+                  border-radius: 5px; 
+                  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
+                  
+                  padding: 0.5rem;
+                  
+                  color: #FFFFFF;
+                  font-size: 1rem;
+
+                  > option {
+                     font-size: 1rem;
+                  }
+               }
+            }
+
+            > .title {
+               width: 100%;
+               display: flex;
+               flex-direction: column;
+               gap: 0.3rem;
+
+               > p {
+                  font-size: 1rem;
+                  font-family: 'Roboto', sans-serif;
+                  font-weight: 400;
+                  color: #C4C4CC;
+               }
+            }
          }
       }
 
@@ -185,7 +300,14 @@ export const Container = styled.div`
          > div {
             display: flex;
             flex-direction: column;
-            gap: 0.3rem;
+            gap: 0.5rem;
+
+            > p {
+               font-size: 1rem;
+               font-family: 'Roboto', sans-serif;
+               font-weight: 400;
+               color: #C4C4CC;
+            }
 
             > .ingredients {
                display: flex;
@@ -198,13 +320,22 @@ export const Container = styled.div`
          }   
       }
 
+
       > .description {
          width: 70rem;
          display: flex;
          flex-direction: column;
+         gap: 0.5rem;
 
          margin-top: 2rem;
          margin-left: 7.69rem;
+
+         > p {
+            font-size: 1rem;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            color: #C4C4CC;
+         }
 
          > textarea {
             width: 100%;
@@ -299,5 +430,9 @@ export const Upload = styled.div`
 
    @media(max-width: 1070px) {
       align-items: center;
+
+      > label {
+         width: 100%;
+      }
    }    
 `;

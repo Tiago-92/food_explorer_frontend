@@ -21,11 +21,13 @@ export function Payment() {
    function showCredit() {
       setIsCredit(true)
       setAwaitPayment(null)
+      setOrderDelivered(false)
    }
 
    function showPix() {
       setIsCredit(false)
       setAwaitPayment(null)
+      setOrderDelivered(false)
    }
 
    function showCheckCircle() {
@@ -71,34 +73,39 @@ export function Payment() {
                </button>
             </div>
 
-            {isCredit === false && 
+            {
+               isCredit === false && 
                <div className="pix">
                   <img src={qrCode} />
                </div>   
             }
 
-            {awaitPayment && 
+            {
+               awaitPayment && 
                <div className="await">
                   <img src={clock} />
                   <span>Aguardando pagamento no caixa</span>
                </div>   
             }
 
-            {paymentAccepted && 
+            {
+               paymentAccepted && 
                <div className="accept">
                   <img src={checkCircle} />
                   <span>Pagamento aprovado!</span>
                </div>
             }
 
-            {orderDelivered &&
+            {
+               orderDelivered &&
                <div className="delivered">
                   <img src={delivered} />
                   <span>Pedido entregue!</span>
                </div> 
             }   
          
-            {isCredit &&
+            {
+               isCredit &&
                <div className="card"> 
                   <div className="number">
                      <span>Número do cartão</span>

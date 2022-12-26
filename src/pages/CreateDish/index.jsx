@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 import { api } from "../../services/api";
 
+import { useAuth } from "../../hooks/auth";
+
 import { Container, Upload } from "./styles";
 import arrowLeft from "../../assets/arrowLeft.svg";
 import { FiUpload } from "react-icons/fi";
@@ -13,14 +15,16 @@ import { Input } from "../../components/Input";
 import { NewIngredients } from "../../components/NewIngredients";
 import { Footer } from "../../components/Footer";
 
-
 export function CreateDish() {
    const [title, setTitle] = useState("");
    const [ingredients, setIngredients] = useState([]);
    const [newIngredient, setNewIngredient] = useState("");
    const [price, setPrice] = useState("");
    const [description, setDescription] = useState("");
+   const [category, setCategory] = useState("");
    const [img, setImg] = useState(null);
+
+   const { user } = useAuth();
 
    const navigate = useNavigate();
 
@@ -62,6 +66,7 @@ export function CreateDish() {
         formData.append("img", img);
         formData.append("title", title);
         formData.append("description", description);
+        formData.append("category", category);
         formData.append("price", price);
 
          ingredients.map(ingredient => (
@@ -78,7 +83,10 @@ export function CreateDish() {
          
          <Header />
 
-         <button 
+         {
+            user.isAdm ?
+         <>
+            <button 
             className="button-arrow-left"
             onClick={comeBack}
          >
@@ -87,7 +95,7 @@ export function CreateDish() {
          </button>
 
          <h1>Editar Prato</h1>
-         
+
          <div className="flex-row">
             <Upload>
                   <span>Imagem do Prato</span>
@@ -103,19 +111,37 @@ export function CreateDish() {
                      onChange={e => setImg(e.target.files[0])}
                   />
             </Upload>
+
             <div className="input">
-               <span>Nome</span>
-               <Input
-                  type="text" 
-                  placeholder="Ex: Salada Ceasar"
-                  onChange={e => setTitle(e.target.value)}
-               />
+               <div className="category">
+                  <p>Categoria</p>
+                  <select className="category" value={category} onChange={text => setCategory(text.target.value)}>
+                     <option value="main">
+                        Prato Principal
+                     </option>
+                     <option value="dessert">
+                        Sobremesa
+                     </option>
+                     <option value="drink">
+                        Bebida
+                     </option>
+                  </select>
+               </div>
+            
+               <div className="title">
+                  <p>Nome</p>
+                  <Input
+                     type="text" 
+                     placeholder="Ex: Salada Ceasar"
+                     onChange={e => setTitle(e.target.value)}
+                  />
+                  </div>
+               </div>
             </div>
-         </div>
 
          <div className="flex-row2">
             <div>
-               <span>Ingredientes</span>
+               <p>Ingredientes</p>
                <div className="ingredients">
                   {
                      ingredients.map((ingredient, index) =>(
@@ -138,7 +164,7 @@ export function CreateDish() {
             </div>
 
             <div className="price">
-               <span>Preço</span>
+               <p>Preço</p>
                <Input
                   type="number" 
                   placeholder="R$ 00,00"
@@ -149,7 +175,7 @@ export function CreateDish() {
          </div>
 
          <div className="description">
-            <span>Descrição</span>
+            <p>Descrição</p>
             <textarea
                type="text"
                placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
@@ -163,6 +189,15 @@ export function CreateDish() {
                Adicionar pedido
             </button>
          </div>
+         </>
+            :
+
+            <div className="not-authorized">
+               <h1>
+                  Somente o usuário adminitrador pode criar ou editar um prato.
+               </h1>
+            </div>
+         }
 
          <Footer />
          

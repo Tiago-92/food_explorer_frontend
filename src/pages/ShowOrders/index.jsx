@@ -1,9 +1,24 @@
+import { useState, useEffect } from "react";
+
 import { Container } from "./styles";
 
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 
-export function Order() {
+
+export function ShowOrders() {
+   /*const [orders, setOrders] = useState([]);
+
+      useEffect(() => {
+      async function fetchOrders() {
+         const response = await api.get("orders")
+         setOrders(response.data)
+         console.log(response.data)
+      }
+      fetchOrders()
+   }, [])
+   */
+
    return(
       <Container>
          <Header />
@@ -55,7 +70,8 @@ export function Order() {
                </tbody>
          </table>
 
-         <Footer />    
+         <Footer />
       </Container>
    )
 }
+

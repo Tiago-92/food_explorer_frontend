@@ -16,18 +16,13 @@ import { Dish } from "../../components/Dish";
 
 export function Main() {
    const [dishs, setDishs] = useState([]);
+   const [ingredients, setIngredients] = useState([]);
    const [search, setSearch] = useState("");
-
-   //const navigate = useNavigate();
 
    const carousel = useRef(null);
    const carousel_2 = useRef(null);
    const carousel_3 = useRef(null);
 
-   /*function handleDetails(id) {
-      navigate(`/details/${id}`)
-   }
-   */
 
    const handleLeftClickDish = (e) => {
       e.preventDefault();
@@ -63,7 +58,10 @@ export function Main() {
       async function fetchDishs() {
           const response = await api.get(`/dishs?title=${search}`);
           setDishs(response.data)
-          console.log(search)
+          console.log(response.data)
+          
+          const responseIngredients = await api.get("/ingredients")
+          setIngredients(responseIngredients.data)
       }         
       fetchDishs();
   }, [search])
@@ -85,7 +83,7 @@ export function Main() {
          <Content>
 
             <button>
-               <Link to="/edit">
+               <Link to="/create">
                   Criar prato
                </Link>
             </button>
@@ -109,7 +107,6 @@ export function Main() {
                            <Dish
                               key={String(dish.id)}
                               data={dish}
-                              //onClick={() => handleDetails(dish.id)}
                            />
                         ))
                      }

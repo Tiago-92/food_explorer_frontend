@@ -33,7 +33,7 @@ export function Dish({ data, ...rest }) {
    }
 
    async function handleAddDishToMyOrder() {
-      await api.post(`/myorder/?id=${data.id}`, {
+      await api.post(`/cart/?id=${data.id}`, {
          quantity,
       });
 
@@ -91,7 +91,7 @@ export function Dish({ data, ...rest }) {
                      onChange={e => setQuantity(e.target.value)}
                   >
                      Incluir
-                  </Button>                  
+                  </Button>              
                </div>
                </div>                     
             </div>

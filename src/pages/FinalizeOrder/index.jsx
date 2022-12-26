@@ -1,64 +1,54 @@
+import { useState, useEffect } from "react";
+
+import { useParams } from "react-router-dom";
+
+import { api } from "../../services/api";
+
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { Payment } from "../../components/Payment";
-
-import food_1 from "../../assets/food_1.png";
+import { Button } from "../../components/Button";
+import { Cart } from "../../components/Cart";
 
 import { Container } from "./styles";
 
 export function FinalizeOrder() {
+   const [carts, setCarts] = useState([]);
+
+   useEffect(() => {
+      async function fetchOrder() {
+         const response = await api.get("/cart/?user_id=14");
+         setCarts(response.data)
+         console.log(response.data)
+      }
+
+      fetchOrder()
+   }, [])
+
    return(
       <Container>
 
          <Header />
 
-         <div className="box">
+         <h1 className="title">Meu Pedido</h1>
 
-            <div>
+         {
+            carts.map(cart => (
+               <Cart
+                  key={String(cart.id)}
+                  data={cart}
+               />
+            ))
+         }
 
-               <h1>Meu Pedido</h1>
+         <p>TOTAL: R$</p>
 
-               <div className="invisable-box">
-                  <div className="dish">
-                     <img src={food_1} alt="disk" />
-                     <div>
-                        <p>1 x Salada Radish<span>R$ 25.97</span></p>
-                        <button>Excluir</button>
-                     </div> 
-                  </div>
+         <Button
+            title="Finalizar Pedido"
+         />
 
-                  <div className="dish">
-                     <img src={food_1} alt="disk" />
-                     <div>
-                        <p>1 x Salada Radish<span>R$ 25.97</span></p>
-                        <button>Excluir</button>
-                     </div> 
-               </div>
-
-               <div className="dish">
-                  <img src={food_1} alt="disk" />
-                  <div>
-                     <p>1 x Salada Radish<span>R$ 25.97</span></p>
-                     <button>Excluir</button>
-                  </div> 
-               </div>
-
-               <div className="dish">
-                  <img src={food_1} alt="disk" />
-                  <div>
-                     <p>1 x Salada Radish<span>R$ 25.97</span></p>
-                     <button>Excluir</button>
-                  </div> 
-               </div>
-               <span>Total: R$ 45.56</span>
-            </div>
-         </div>
-
-         <div className="payment">
-            <Payment/>
-         </div>
-         </div>
-
+  
+         
          <Footer />
          
       </Container>
