@@ -115,7 +115,14 @@ export function CreateDish() {
             <div className="input">
                <div className="category">
                   <p>Categoria</p>
-                  <select className="category" value={category} onChange={text => setCategory(text.target.value)}>
+                  <select
+                     className="category"
+                     value={category}
+                     onChange={text => setCategory(text.target.value)}
+                  >
+                     <option>
+                        Selecione
+                     </option>
                      <option value="main">
                         Prato Principal
                      </option>

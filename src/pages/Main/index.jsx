@@ -103,14 +103,13 @@ export function Main() {
 
                   <div className="item">
                      {
-                        dishs.map(dish => (
+                        dishs.filter(dish => dish.category == "main").map(dish => (
                            <Dish
                               key={String(dish.id)}
-                              data={dish}
+                              data={dish} 
                            />
                         ))
                      }
-      
                   </div>  
                </div>                      
             </div> 
@@ -130,6 +129,14 @@ export function Main() {
                      </button>
 
                      <div className="item">
+                     {
+                        dishs.filter(dish => dish.category == "dessert").map(dish => (
+                           <Dish
+                              key={String(dish.id)}
+                              data={dish}
+                           />
+                        ))
+                     }
                         
                      </div>
                   </div>
@@ -150,19 +157,14 @@ export function Main() {
                   </button>
 
                   <div className="item">
-                
-                  </div>
-
-                  <div className="item">
-         
-                  </div>
-
-                  <div className="item">
-          
-                  </div>
-
-                  <div className="item">
-                
+                     {
+                        dishs.filter(dish => dish.category == "drink").map(dish => (
+                           <Dish
+                              key={String(dish.id)}
+                              data={dish}
+                           />
+                        ))
+                     }
                   </div>
                </div>
             </div>         
