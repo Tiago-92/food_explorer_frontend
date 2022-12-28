@@ -1,10 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 import { api } from "../../services/api";
-
-import { useAuth } from "../../hooks/auth";
 
 import { Container, Upload } from "./styles";
 import arrowLeft from "../../assets/arrowLeft.svg";
@@ -13,20 +11,37 @@ import { FiUpload } from "react-icons/fi";
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
 import { NewIngredients } from "../../components/NewIngredients";
+
 import { Footer } from "../../components/Footer";
 
-export function CreateDish() {
+export function EditDish() {
    const [title, setTitle] = useState("");
-   const [ingredients, setIngredients] = useState([]);
+    const [description, setDescription] = useState("");
+    const [category, setCategory] = useState("");
+    const [price, setPrice] = useState("");
+    const [ingredients, setIngredients] = useState([]);
+    const [image, setImage] = useState(null);
    const [newIngredient, setNewIngredient] = useState("");
-   const [price, setPrice] = useState("");
-   const [description, setDescription] = useState("");
-   const [category, setCategory] = useState("");
-   const [img, setImg] = useState(null);
 
-   const { user } = useAuth();
+    const navigate = useNavigate();
+    const params = useParams();
 
-   const navigate = useNavigate();
+
+   function comeBack() {
+      navigate(-1);
+   }
+
+   function handleEditDish() {
+      api.put(`/dishs/${params.id}`, { title, description, price, category, ingredients });
+
+      const formData = new FormData();
+      formData.append("img", image);
+
+      api.patch(`/dishs/dishimage/${params.id}`, formData)
+
+      alert("Item alterado com sucesso!")
+      navigate(-1)
+   }
 
    function handleAddIngredients() {
       setIngredients(prevState => [...prevState, newIngredient]);
@@ -34,49 +49,24 @@ export function CreateDish() {
    }
 
    function handleRemoveIngredient(deleted) {
-      setIngredients(prevState => prevState.filter(ingredient => ingredients !== deleted));
+      setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
   }
 
-   function comeBack() {
-      navigate(-1);
-   }
-  
-   async function handleCreateDish() {
-      if(!title) {
-         alert("Digite um título para o seu prato!")
-      }
+   useEffect(() => {
+    async function fetchDish() {
+       const response = await api.get(`/dishs/${params.id}`);
+       
+       const { title, description, category, price, ingredients, image} = response.data;
+       setTitle(title);
+       setDescription(description);
+       setCategory(category);
+       setPrice(price);
+       setImage(img);
+       setIngredients(ingredients.map(ingredient => ingredient.name));
+    }
 
-      if(!price) {
-         alert("Digite um preço para o seu prato!")
-      }
-
-      if(!description) {
-         alert("Digite uma descrição para o seu prato!")
-      }
-
-      if(!ingredients) {
-         alert("Digite os ingredientes do seu prato!")
-      }
-
-      if(!img) {
-         alert("Selecione uma imagem para o seu prato!")
-      }
-
-      const formData = new FormData();
-        formData.append("img", img);
-        formData.append("title", title);
-        formData.append("description", description);
-        formData.append("category", category);
-        formData.append("price", price);
-
-         ingredients.map(ingredient => (
-         formData.append("ingredients", ingredient)
-     ))
-
-        api.post("/dishs", formData)
-        alert("Prato cadastrado com sucesso");
-        navigate("/")
-      }
+    fetchDish();
+    }, [])
 
    return(
       <Container>
@@ -84,7 +74,7 @@ export function CreateDish() {
          <Header />
 
          {
-            user.isAdm ?
+
          <>
             <button 
             className="button-arrow-left"
@@ -108,17 +98,18 @@ export function CreateDish() {
                   <input className="file"
                      id="img"
                      type="file"
-                     onChange={e => setImg(e.target.files[0])}
+                     onChange={e => setImage(e.target.files[0])}
                   />
             </Upload>
 
             <div className="input">
-               <div className="category">
+               <div className="category"
+               >
                   <p>Categoria</p>
                   <select
                      className="category"
                      value={category}
-                     onChange={text => setCategory(text.target.value)}
+                     onChange={e => setCategory(e.target.value)}
                   >
                      <option>
                         Selecione
@@ -139,6 +130,7 @@ export function CreateDish() {
                   <p>Nome</p>
                   <Input
                      type="text" 
+                     value={title}
                      placeholder="Ex: Salada Ceasar"
                      onChange={e => setTitle(e.target.value)}
                   />
@@ -149,8 +141,10 @@ export function CreateDish() {
          <div className="flex-row2">
             <div>
                <p>Ingredientes</p>
+
                <div className="ingredients">
-                 {
+
+               {
                      ingredients.map((ingredient, index) =>(
                         <NewIngredients
                            key={String(index)}
@@ -167,6 +161,7 @@ export function CreateDish() {
                      val ue={newIngredient}
                      onClick={handleAddIngredients}
                   />
+
                </div>
             </div>
 
@@ -174,8 +169,8 @@ export function CreateDish() {
                <p>Preço</p>
                <Input
                   type="number" 
-                  placeholder="R$ 00,00"
-                  onChange={e => setPrice(e.target.value)}
+                  value={price}
+                  onChange={e => setPrice(e.target.value)}              
                />
             </div>
             
@@ -185,26 +180,20 @@ export function CreateDish() {
             <p>Descrição</p>
             <textarea
                type="text"
-               placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
-               onChange={e => setDescription(e.target.value)} 
-            />  
+               value={description}
+               onChange={e => setDescription(e.target.value)}
+            />
          </div>
 
          <div className="save-order">
-            <button 
-               onClick={handleCreateDish}>
-               Adicionar pedido
+            <button
+               onClick={handleEditDish}
+            >
+               Salvar alterações
             </button>
          </div>
          </>
-            :
-
-            <div className="not-authorized">
-               <h1>
-                  Somente o usuário adminitrador pode criar ou editar um prato.
-               </h1>
-            </div>
-         }
+        }        
 
          <Footer />
          

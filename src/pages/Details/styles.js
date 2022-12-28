@@ -124,6 +124,37 @@ export const Content = styled.main` // mobile-first
             }
          }
 
+         > .edit {
+            display: flex;
+            gap: 2rem;
+
+            margin-top: 2rem;
+
+
+            > .button-white {
+               border: none;
+               background: none;
+               border: 1px solid gray;
+
+               color: #FFFFFF;
+               font-size: 1.5rem;
+
+               height: 2.5rem;
+               width: 7.5rem;
+            }
+
+            > .button-red {
+               border: 1px solid red;
+               background: none;
+
+               color: #92000E;
+               font-size: 1.5rem;
+
+               width: 10.62rem;
+            }
+
+         }
+
          > .value {
             margin-top: 2.94rem;
 

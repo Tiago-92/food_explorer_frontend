@@ -1,4 +1,5 @@
 import { useState, useEffect, } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
 
@@ -18,6 +19,7 @@ export function Details() {
    const [data, setData] = useState(null);
  
    const params = useParams();
+   const navigate = useNavigate();
 
    const imageURL = data && `${api.defaults.baseURL}/files/${data.img}`
 
@@ -30,7 +32,23 @@ export function Details() {
    const ingredientesName1 = data && data.ingredients[1] ? data && data.ingredients[1].name : '';
    const ingredientesName2 = data && data.ingredients[2] ? data && data.ingredients[2].name : '';
    const ingredientesName3 = data && data.ingredients[3] ? data && data.ingredients[3].name : '';
-  
+
+   function goToEditDish() {
+      navigate(`/edit/${params.id}`)
+   }
+
+   async function deleteDish() {
+
+      const response = confirm("Tem certeza que deseja excluir esse item?")
+
+      if (response == true) {
+         await api.delete(`dishs/${params.id}`);
+
+         alert("Item excluído com sucesso!")
+         navigate(-1)
+      }    
+   }
+
    useEffect(() => {
       async function fetchDish() {
          const response = await api.get(`/dishs/${params.id}`);
@@ -76,6 +94,22 @@ export function Details() {
                         <img src={ingredientsIMG3} />
                         <span>{ingredientesName3}</span>
                      </div>
+                  </div>
+
+                  <div className="edit">
+                     <button 
+                        className="button-white"
+                        onClick={goToEditDish}
+                     >
+                        Editar
+                     </button>
+
+                     <button 
+                        className="button-red"
+                        onClick={deleteDish}
+                     >
+                        Excluir item
+                     </button>
                   </div>
 
                   <div className="value">
