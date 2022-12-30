@@ -13,14 +13,14 @@ export const Container = styled.div`
 
       font-size: 2.6rem;
       font-weight: 700;
-
+      
       > img {
          width: 49px;
          height: 47px;
       }
    }
 
-   @media (max-width: 1065px) {
+   @media (max-width: 1105px) {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -85,11 +85,16 @@ export const Form = styled.form`
          }
       }
    
-   @media (max-width: 1065px) {
+   @media (max-width: 1070px) {
       margin-top: 1rem;
       margin-right: 4.9rem;
       margin-left: 4.9rem;
+     
 
       width: 100%;
+
+      h1 {
+         border: 1px solid violet;
+      }
    }
 `;

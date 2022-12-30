@@ -20,8 +20,6 @@ export function SignUp() {
 
     function handleSignUp() {
         SignIn({ email, password })
-
-        alert("Testando")
     }
 
     return (
@@ -39,8 +37,9 @@ export function SignUp() {
                 <div className="form">
                     <h2>Faça Login</h2>
 
-                    <p>E-mail</p>
+                    <p>Email</p>
                     <Input
+                        isTransparent
                         type="email"
                         placeholder="Exemplo: exemplo@exemplo.com"
                         onChange={e => setEmail(e.target.value)}
@@ -48,15 +47,18 @@ export function SignUp() {
 
                     <p>Senha</p>
                     <Input
+                        isTransparent
                         type="password"
                         placeholder="No minímo 6 caracteres"
                         onChange={e => setPassword(e.target.value)} 
                     />
-                    <Button title="Entrar" onClick={handleSignUp} />
+                    <div className="login">
+                        <Button title="Entrar" onClick={handleSignUp} />
+                    </div>
                 </div>
 
                 <button className="button">
-                    <Link to="/">
+                    <Link to="/register">
                         Criar uma Conta
                     </Link>
                 </button>

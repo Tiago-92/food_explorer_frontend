@@ -53,7 +53,8 @@ export function Payment() {
 
    return (
       <Container>
-         <h1>Pagamento</h1>
+          <h1>Pagamento</h1>
+
          <div className="payment">
             <div className="pix-our-credit">
                <button 

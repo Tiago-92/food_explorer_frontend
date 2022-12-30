@@ -37,7 +37,7 @@ export function ShowOrders() {
                <tbody>
                <tr>
                   <td>
-                     <li>Pendente</li>
+                     <li className="pending">Pendente</li>
                   </td>
                   <td>00000004</td>
                   <td>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</td>
@@ -45,7 +45,7 @@ export function ShowOrders() {
                </tr>
                <tr>
                   <td>
-                     <li>Preparando</li>
+                     <li className="preparing">Preparando</li>
                   </td>
                   <td>00000003</td>
                   <td>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</td>
@@ -53,7 +53,7 @@ export function ShowOrders() {
                </tr>
                <tr>
                   <td>
-                     <li>Entregue</li>
+                     <li className="delivered">Entregue</li>
                   </td>
                   <td>00000002</td>
                   <td>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</td>
@@ -61,7 +61,7 @@ export function ShowOrders() {
                </tr>
                <tr>
                   <td>
-                     <li>Entregue</li>
+                     <li className="delivered">Entregue</li>
                   </td>
                   <td>00000001</td>
                   <td>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</td>

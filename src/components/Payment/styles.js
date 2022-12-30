@@ -2,18 +2,19 @@ import styled from "styled-components";
 
 export const Container = styled.div`
    > h1 {
-      display: flex;
-      justify-content: center;
+      font-size: 1.88rem;
+      font-weight: 500;
+      color: #E1E1E6;
+
+      margin-bottom: 1.5rem;
+      margin-left: 1rem;
    }
 
    > .payment {
-      width: 21.87rem;
+      width: 390px;
       height: 28.87rem;
       border: 1px solid gray;
-
-      
-
-      margin-top: 2rem;
+      margin-left: 20px;
 
       > .pix-our-credit {
          display: flex;
@@ -66,8 +67,12 @@ export const Container = styled.div`
          display: flex;
          flex-direction: column;
          align-items: center;
-
          padding-top: 3.56rem;
+   
+         img {
+            width: 15.62rem;
+            height: 15.62rem;
+         }
       }
 
       > .await, 
@@ -79,6 +84,7 @@ export const Container = styled.div`
         
          align-items: center;
          padding-top: 4.44rem;
+         
          
          > img {
             width: 6.5rem;
@@ -98,11 +104,9 @@ export const Container = styled.div`
       > .card {
          display: flex;
          flex-direction: column;
-
          margin-top: 3.69rem;
+         margin-left: 1rem;
       
-         
-
          > .number {
             display: flex;
             flex-direction: column;
@@ -172,23 +176,26 @@ export const Container = styled.div`
 
    @media(min-width: 1070px) {
       > h1 {
-         justify-content: start;
-      }
+         font-size: 2rem;
+         font-weight: 500;
+         font-family: 'Poppins', sans-serif;
+         color: #E1E1E6;
 
+         margin-bottom: 2rem;
+         margin-left: 1rem;
+      }
       > .payment {
          width: 33.12rem;
-         height: 28.87rem;
-         border: 1px solid gray;
+         height: 28.88rem;
 
-         margin-top: 2rem;
-
-         
          > .card {
             display: flex;
             flex-direction: column;
+            justify-content: center;
+
+            margin-left: 5.69rem;
 
             margin-top: 3.69rem;
-            margin-left: 5.69rem;
          }
          
       } 

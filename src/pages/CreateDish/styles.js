@@ -10,6 +10,8 @@ export const Container = styled.div`
 
       width: 100vw;
 
+      margin-bottom: 2rem;
+
       > h1 {
          font-size: 2rem;
 
@@ -36,6 +38,8 @@ export const Container = styled.div`
 
          color: #E1E1E6;
          font-size: 1.5rem;
+
+         margin-top: 1.5rem;
 
          display: flex;
          align-items: center;
@@ -82,6 +86,7 @@ export const Container = styled.div`
                   border: 1px solid white;
                   border-radius: 5px;
 
+                  
                }
             }
 
@@ -100,7 +105,6 @@ export const Container = styled.div`
                }
             }
          }
- 
       }
 
       > .flex-row2 {
@@ -174,9 +178,11 @@ export const Container = styled.div`
 
             width: 20rem;
             height: 30px;
-
-
          }
+      }
+
+      > footer {
+         display: none;
       }
    }
 
@@ -260,7 +266,7 @@ export const Container = styled.div`
 
                   border: 1px solid white;
                   border-radius: 5px; 
-                  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
+                  background: transparent;
                   
                   padding: 0.5rem;
                   
@@ -269,6 +275,7 @@ export const Container = styled.div`
 
                   > option {
                      font-size: 1rem;
+                     background: ${({ theme }) => theme.COLORS.BACKGROUND_800};
                   }
                }
             }
@@ -319,7 +326,6 @@ export const Container = styled.div`
             }
          }   
       }
-
 
       > .description {
          width: 70rem;
@@ -379,6 +385,13 @@ export const Container = styled.div`
 
             margin-bottom: 7.68rem;
          }
+      }
+
+      > footer {
+         margin-top: 7.68rem;
+         height: 5.75rem;
+
+         padding-top: 2.2rem;
       }
    }
 `;

@@ -32,7 +32,7 @@ export const Container = styled.main`
       flex-direction: row;
       height: 25.37rem;
       margin-top: 1.94rem;
-      
+
       @media(max-width: 1070px) {
          display: none;
       }
@@ -56,12 +56,36 @@ export const Container = styled.main`
          margin-left: 7.75rem;
          background: linear-gradient(180deg, #091E26 0%, #00131C 100%);
          border-radius: 8px;
+
+         > .content {
+            h2 {
+               font-size: 2.5rem;
+               font-family: 'Poppins', sans-serif;
+               font-weight: 500;
+               
+            }
+
+            p {
+               font-size: 1rem;
+               font-family: 'Poppins', sans-serif;
+               font-weight: 400;
+            }
+         }
       }
    }
+   
    > footer {
       content: "footer";
-      height: 124px;
+      height: 7.75rem;
+
+      margin-top: 6.13rem;
    }
+
+   @media(max-width: 1070px) {
+      > footer {
+         display: none;
+         }
+      }
 `;
 
 export const Content = styled.div`
@@ -69,11 +93,38 @@ export const Content = styled.div`
    display: grid; 
    content: "main";
 
+   > .button {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      margin-top: 1.5rem;
+
+      > button {
+         width: 150px;
+         height: 40px;
+
+         background: none;
+         border: 1px solid #FFFF;
+
+         a {
+            text-decoration: none;
+            color: #FFFF;
+            font-size: 1.2rem;
+         }
+      }
+
+      > button:hover {
+         background: ${({ theme }) => theme.COLORS.BACKGROUND_700};
+      }
+
+   }
+
    > h1 {
       display: flex;
       justify-content: center;
 
-      margin-top: 3rem;
+      margin-top: 1rem;
       margin-bottom: 2.44rem;
 
       font-size: 2rem;
@@ -108,6 +159,12 @@ export const Content = styled.div`
          > button {
             display: none;
          }
+
+         > .item {
+            display: flex;
+            flex-direction: column;
+            gap: 1.69rem;
+         }
       }
    }
       
@@ -119,10 +176,16 @@ export const Content = styled.div`
       gap: 1.69rem;
       flex-wrap: wrap;
 
+      > .button {
+         margin-top: 2.5rem;
+      }
+   
       h1 {
          display: flex;
          justify-content: start;
          width: 100%;
+
+         margin-top: 0;
 
          margin-left: 7.69rem;
       }
@@ -132,16 +195,16 @@ export const Content = styled.div`
          flex-direction: column;
          position: relative;
          width: 70.12rem;
-
+         
          > .carousel {
             display: flex;
             flex-direction: row;
             width: 70.12rem;
-
             overflow-x: auto;
 
             > .item {
                display: flex;
+               flex-direction: row;
                gap: 1.69rem;
             }
          
@@ -175,13 +238,14 @@ export const Content = styled.div`
       }
    }
 
-      .carousel::-webkit-scrollbar {
-         display: none;
-      }
-
-      .carousel {
-         -ms-overflow-style: none;
-         scrollbar-width: none;
-      }
+   
+   .carousel::-webkit-scrollbar {
+      display: none;
    }
+
+   .carousel {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+   }
+}
 `;

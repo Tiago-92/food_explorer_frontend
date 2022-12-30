@@ -10,47 +10,44 @@ import { Payment } from "../../components/Payment";
 import { Button } from "../../components/Button";
 import { Cart } from "../../components/Cart";
 
-import { Container } from "./styles";
+import { Container, Content } from "./styles";
 
 export function FinalizeOrder() {
    const [carts, setCarts] = useState([]);
 
    useEffect(() => {
-      async function fetchOrder() {
+      async function fetchCart() {
          const response = await api.get("/cart/?user_id=14");
          setCarts(response.data)
-         console.log(response.data)
       }
 
-      fetchOrder()
+      fetchCart()
    }, [])
 
    return(
       <Container>
+          <Header/>
+          
+         <Content>
+            <div className="order">
+               <h1>Meu Pedido</h1>
 
-         <Header />
+               {
+                  carts.map(cart => (
+                     <Cart
+                        key={String(cart.id)}
+                        data={cart}
+                     />
+                  ))
+               }
+               
+               <p>TOTAL: R$</p>
+            </div>
+            <Payment />
 
-         <h1 className="title">Meu Pedido</h1>
+         </Content>
 
-         {
-            carts.map(cart => (
-               <Cart
-                  key={String(cart.id)}
-                  data={cart}
-               />
-            ))
-         }
-
-         <p>TOTAL: R$</p>
-
-         <Button
-            title="Finalizar Pedido"
-         />
-
-  
-         
-         <Footer />
-         
+         <Footer />         
       </Container>
    )
 }

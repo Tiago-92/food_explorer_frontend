@@ -5,7 +5,7 @@ export function Button({ icon: Icon, title, ...rest }) {
       <Container 
          {...rest}
       >
-         {Icon && <Icon size={19.5} />}
+         {Icon && <Icon size={26} />}
          {title}
       </Container>
    )

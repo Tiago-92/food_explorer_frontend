@@ -15,7 +15,7 @@ export function AppRoutes() {
          <Route path="/create" element={<CreateDish />} />
          <Route path="/edit/:id" element={<EditDish />} />
          <Route path="/orders" element={<ShowOrders />} />
-         <Route path="/finalize" element={<FinalizeOrder />} />
+         <Route path="/finalize" element={<FinalizeOrder />} /> 
       </Routes>
    )
 }

@@ -2,17 +2,17 @@ import styled from "styled-components";
 
 export const Container = styled.div`
    
-   border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
+   border: 1px solid ${({ theme, isTransparent }) => isTransparent ? theme.COLORS.WHITE : "none"};
 
    display: flex;
    align-items: center;
-   padding-left: 16px;
    width: 100%;
 
    background-color: ${({ theme, isTransparent }) => isTransparent ? "transparent" : theme.COLORS.BACKGROUND_700};
 
    > svg {
       color: #C4C4CC;
+      margin-left: 1rem;
    }
 
    border-radius: 5px;

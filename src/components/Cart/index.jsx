@@ -11,7 +11,9 @@ export function Cart({ data, ...rest }) {
                 <img src={imageURL} />
                 <p>{data.quantity} x </p>  
                 <p>{data.dish_title}</p>
-                <span>R$ {data.dish_price}</span>
+                <div className="price">
+                    <span>R$ {data.dish_price}</span>
+                </div>
             </div>
 
             <div className="button">

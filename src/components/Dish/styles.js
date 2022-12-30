@@ -5,6 +5,9 @@ export const Container = styled.div`
    border: none;
 
    > .carousel {
+      display: flex;
+      align-items: center;
+      justify-content: end;
       > .dish {
          display: flex;
          flex-direction: column;
@@ -54,6 +57,7 @@ export const Container = styled.div`
             margin-top: 1.12rem;
 
             font-size: 0.87rem;
+            font-family: 'Roboto', sans-serif;
             font-weight: 400;
             line-height: 1.4rem;
             text-align: center;
@@ -64,6 +68,7 @@ export const Container = styled.div`
 
          > span {
             margin-top: 1rem;
+            margin-bottom: 1rem;
             
             font-size: 2rem;
             font-weight: 400;
@@ -71,7 +76,7 @@ export const Container = styled.div`
          }
 
          > .add-acc {
-            margin-top: 1rem;
+         
             display: flex;
             flex-direction: row;
             align-items: center;

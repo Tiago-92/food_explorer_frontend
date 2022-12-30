@@ -10,9 +10,39 @@ export const Container = styled.div`
 
       width: 100vw;
 
-      > h1 {
-         font-size: 2rem;
+      > header {
+         width: 325px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+   
+         > h1 {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 25px;
 
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+
+            > img {
+               width: 30px;
+               height: 30px;
+            }
+         }
+
+         > .button {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+         }
+      }
+
+      > h1 {
+         display: flex;
+         font-size: 2rem;
          margin-top: 1rem;
       }
 
@@ -31,17 +61,7 @@ export const Container = styled.div`
       }
 
       > button {
-         background: none;
-         border: none;
-
-         color: #E1E1E6;
-         font-size: 1.5rem;
-
-         display: flex;
-         align-items: center;
-         width: 150px;
-         justify-content: center;
-         gap: 0.62rem;
+         display: none;
       }
 
       > .flex-row {
@@ -50,7 +70,7 @@ export const Container = styled.div`
          flex-direction: column;
          justify-content: center;
 
-         margin-top: 2rem;
+         margin-top: 1rem;
 
          > .input {
             width: 100%;
@@ -161,7 +181,8 @@ export const Container = styled.div`
 
       > .save-order {
          margin-top: 1rem;
-         
+         margin-bottom: 1rem;
+                  
          > button {
             background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
             border: 1px solid #FFFFFF;
@@ -174,30 +195,71 @@ export const Container = styled.div`
 
             width: 20rem;
             height: 30px;
-
-
          }
+      }
+
+      > footer {
+         display: none;
       }
    }
 
    @media(min-width: 1070px) { // versão web      
 
-      > button {
-         background: none;
-         border: none;
-         
-         color: #E1E1E6;
-         font-size: 1.5rem;
-         font-family: 'Poppins', sans-serif;
-         font-weight: 500;
+      > header {
+         display: flex;
+         width: 100%;
+         justify-content: space-between;
+         align-items: center;
+       
+         padding-left: 7.69rem;
+         padding-right: 7.69rem;
+        
+         height: 6.5rem;
 
+         background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+
+         > h1 {
+            display: flex;
+            gap: 11px;
+
+            font-size: 1.57rem;
+            font-weight: 700;
+            font-family: 'Roboto', sans-serif;
+
+            > img {
+               width: 1.81rem;
+               height: 1.81rem;
+            }
+         }
+
+         > .button {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            > .order {
+               padding: 0;
+               display: flex;
+               align-items: center;
+               width: 13.37rem;
+               height: 3.5rem;
+            }
+         }
+      }
+
+      > .button-arrow-left {
          display: flex;
          align-items: center;
-         gap: 11px;
+         gap: 0.5rem;
+         background: none;
+         border: none;
 
+         color: #E1E1E6;
+         font-size: 1.5rem;
+         font-weight: 500;
+
+         margin-left: 8.25rem;
          margin-top: 2rem;
-         margin-left: 7.69rem;
-
       }
 
       > .not-authorized {
@@ -336,7 +398,6 @@ export const Container = styled.div`
          }   
       }
 
-
       > .description {
          width: 70rem;
          display: flex;
@@ -395,6 +456,11 @@ export const Container = styled.div`
 
             margin-bottom: 7.68rem;
          }
+      }
+
+      > footer {
+         height: 5.75rem;
+         padding-top: 1.7rem;
       }
    }
 `;

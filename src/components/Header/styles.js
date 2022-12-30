@@ -4,6 +4,7 @@ export const Container = styled.div`
    display: flex;
    align-items: center;
    justify-content: space-around;
+   gap: 2rem;
    
    height: 6.5rem;
 
@@ -21,8 +22,7 @@ export const Container = styled.div`
 
       font-size: 1.56rem;
       font-weight: 700;
-
-
+      
       > img {
          width: 1.81rem;
          height: 1.81rem;
@@ -54,8 +54,14 @@ export const Container = styled.div`
 
       background: none;
 
+      margin-top: 1rem;
+
       > h1, p, img {
          display: none;
+      }
+
+      > button {
+         margin-bottom: 1rem;
       }
       
       > .input {

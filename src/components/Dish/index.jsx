@@ -65,8 +65,7 @@ export function Dish({ data, ...rest }) {
 
                <p>{data.description}</p>
                
-               <span>R$ {data.price}</span>
-               
+               <span>R$ {data.price.toString().replace(".", ",")}</span>
                
                <div className="add-acc">
                   <button

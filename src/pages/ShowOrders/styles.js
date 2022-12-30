@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-height: 100vh;
+   height: 100vh;
+
    > table {
      width: 70.75rem;
      margin-top: 2.12rem;
@@ -31,14 +32,17 @@ height: 100vh;
       font-family: 'Roboto', sans-serif;
       color: #C4C4CC;
       padding-left: 1.5rem;
-      li::marker{color:red}
+
+      > .pending::marker{color:#AB222E; font-size: 25px;};
+      > .preparing::marker{color:#FBA94C; font-size: 25px;};
+      > .delivered::marker{color:#04D361; font-size: 25px;};
    }
 
    > footer {
       margin-top: 21.81rem;
-      align-items: center;
+      height: 7.75rem;
    }
-
+   
    @media(max-width: 1070px) {
       > table tbody tr td {
         display: block;    
@@ -59,10 +63,10 @@ height: 100vh;
 
       > table tbody td {
          height: 2.5rem;
-      }
 
-      > table tbody li {
-         color: red;
+         > .pending::marker{color:#AB222E; font-size: 15px;};
+         > .preparing::marker{color:#FBA94C; font-size: 15px;};
+         > .delivered::marker{color:#04D361; font-size: 15px;};
       }
 
       > table tbody td {
@@ -72,8 +76,10 @@ height: 100vh;
          margin-left: 3px;
          margin-right: 3px;
       }
+
+
       > footer {
-         margin: 0
+         display: none;
       }
    }
    

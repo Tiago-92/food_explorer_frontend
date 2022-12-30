@@ -5,8 +5,11 @@ import { useParams } from "react-router-dom";
 
 import { api } from "../../services/api";
 
+import { useAuth } from "../../hooks/auth";
+
 import { Header } from "../../components/Header";
 import { Button } from "../../components/Button";
+import { Footer } from "../../components/Footer";
 
 import { Container, Content } from "./styles";
 
@@ -17,6 +20,8 @@ import order from "../../assets/order.svg";
 
 export function Details() {
    const [data, setData] = useState(null);
+
+   const { user } = useAuth();
  
    const params = useParams();
    const navigate = useNavigate();
@@ -96,39 +101,50 @@ export function Details() {
                      </div>
                   </div>
 
-                  <div className="edit">
-                     <button 
-                        className="button-white"
-                        onClick={goToEditDish}
-                     >
-                        Editar
-                     </button>
+                  {
+                     user.isAdm ?
+                     <div className="edit">
+                        <button 
+                           className="button-white"
+                           onClick={goToEditDish}
+                        >
+                           Editar
+                        </button>
 
-                     <button 
-                        className="button-red"
-                        onClick={deleteDish}
-                     >
-                        Excluir item
-                     </button>
-                  </div>
-
+                        <button 
+                           className="button-red"
+                           onClick={deleteDish}
+                        >
+                           Excluir item
+                        </button>
+                     </div> : <div></div>
+                  }
+               
                   <div className="value">
-                     <span>{data.price}</span>
-                     <button className="add">
-                        <img src={acc} />
-                     </button>
-                     01
-                     <button className="acc">
-                        <img src={add} />
-                     </button>
-                     <Button 
-                        title="Incluir" 
-                        img src={order}
-                     />
+                     <div className="price">
+                        <span>R$ {data.price}</span>
+                     </div>
+                     <div className="buttons">
+                        <button className="add">
+                           <img src={acc} />
+                        </button>
+                        01
+                        <button className="acc">
+                           <img src={add} />
+                        </button>
+
+                        <Button className="button-order"
+                           title="Incluir" 
+                           img src={order}
+                        />
+                     </div>    
                   </div>
                </div>
-            </Content> 
+            </Content>
          }
+
+         <Footer />
+
       </Container>
    )
 }

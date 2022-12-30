@@ -138,6 +138,7 @@ export function CreateDish() {
                <div className="title">
                   <p>Nome</p>
                   <Input
+                     isTransparent
                      type="text" 
                      placeholder="Ex: Salada Ceasar"
                      onChange={e => setTitle(e.target.value)}
@@ -173,6 +174,7 @@ export function CreateDish() {
             <div className="price">
                <p>Preço</p>
                <Input
+                  isTransparent
                   type="number" 
                   placeholder="R$ 00,00"
                   onChange={e => setPrice(e.target.value)}

@@ -20,7 +20,7 @@ export const Container = styled.div`
       }
    }
 
-   @media (max-width: 1065px) {
+   @media (max-width: 1105px) {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -65,11 +65,16 @@ export const Form = styled.form`
 
          font-size: 1rem;
          color: ${({ theme }) => theme.COLORS.GRAY_800};
+         font-family: 'Roboto', sans-serif;
 
          width: 21.75rem;
 
          margin-top: 2rem;
          margin-bottom: 0.5rem;
+      }
+
+      > .login {
+         margin-top: 2rem;
       }
    }
 
@@ -86,11 +91,11 @@ export const Form = styled.form`
          }
       }
    
-   @media (max-width: 1065px) {
+   @media (max-width: 1100px) {
       margin-top: 1rem;
       margin-right: 4.9rem;
       margin-left: 4.9rem;
 
-      width: 100%;
+     
    }
 `;

@@ -6,10 +6,13 @@ import { api } from "../../services/api";
 
 import { Container, Upload } from "./styles";
 import arrowLeft from "../../assets/arrowLeft.svg";
-import { FiUpload } from "react-icons/fi";
+import polygon from "../../assets/polygon.svg";
 
-import { Header } from "../../components/Header";
+import { FiUpload } from "react-icons/fi";
+import { Receipt } from 'phosphor-react';
+
 import { Input } from "../../components/Input";
+import { Button } from "../../components/Button";
 import { NewIngredients } from "../../components/NewIngredients";
 
 import { Footer } from "../../components/Footer";
@@ -70,11 +73,25 @@ export function EditDish() {
 
    return(
       <Container>
-         
-         <Header />
+
+         <header>
+            <h1>
+               <img src={polygon} />
+               food explorer
+            </h1>
+
+            <div className="button">
+               <p>Administrador</p>
+               <Button 
+                  className="order"
+                  title="Meus Pedidos (0)"
+                  to="/payment"
+                  icon={Receipt}
+               />
+            </div>
+         </header>
 
          {
-
          <>
             <button 
             className="button-arrow-left"

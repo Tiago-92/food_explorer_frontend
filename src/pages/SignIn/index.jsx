@@ -87,7 +87,7 @@ export function SignIn() {
                 </div>
 
                 <button className="button">
-                    <Link to="/register">
+                    <Link to="/">
                         Já tenho uma conta
                     </Link>
                 </button>

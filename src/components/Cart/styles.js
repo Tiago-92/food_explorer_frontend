@@ -5,7 +5,6 @@ export const Container = styled.div`
     flex-direction: column;
 
     margin-bottom: 1.2rem;
-    margin-left: 7.69rem;
     
     .description {
         display: flex;
@@ -26,19 +25,20 @@ export const Container = styled.div`
             margin-left: 0.81rem;
         }
 
-        > span {
-            margin-left: 0.62rem;
+        > .price {
+            > span {
+                margin-left: 0.62rem;
 
-            font-size: 0.75rem;
-            font-weight: 400;
-            font-family: 'Roboto', sans-serif;
-
+                font-size: 0.75rem;
+                font-weight: 400;
+                font-family: 'Roboto', sans-serif;
+            }
         }
     }
 
     .button {
         margin-left: 5.31rem;
-        margin-top: -1.12rem;
+        margin-top: -0.2rem;
 
         > button {
             border: none;
@@ -53,5 +53,14 @@ export const Container = styled.div`
         > button:hover {
             color: #750310;
         }
+    }
+
+    @media (min-width: 1070px) {
+        > .description {
+
+        }
+        > .button {
+            margin-top: -1.3rem;
+        } 
     }
 `;

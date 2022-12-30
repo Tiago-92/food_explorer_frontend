@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 import { api } from "../../services/api";
 
+import { useAuth } from "../../hooks/auth";
+
 import { Link } from "react-router-dom";
 
 import { Container, Content } from "./styles";
@@ -19,10 +21,11 @@ export function Main() {
    const [ingredients, setIngredients] = useState([]);
    const [search, setSearch] = useState("");
 
+   const { user } = useAuth();
+
    const carousel = useRef(null);
    const carousel_2 = useRef(null);
    const carousel_3 = useRef(null);
-
 
    const handleLeftClickDish = (e) => {
       e.preventDefault();
@@ -68,8 +71,11 @@ export function Main() {
 
    return(
       <Container>
-         <Header search={setSearch}/>
-
+         <Header
+            isVisable
+            search={setSearch}
+         />
+         
          <div className="flavors">
             <img src={flavors} />
             <div className="box-green">
@@ -81,13 +87,18 @@ export function Main() {
          </div>
 
          <Content>
-
-            <button>
-               <Link to="/create">
-                  Criar prato
-               </Link>
-            </button>
-
+            <div className="button">
+               {
+                  user.isAdm ?
+                  <button>
+                     <Link to="/create">
+                        Criar prato
+                     </Link>
+               </button> : <div></div>
+               }
+               
+            </div>
+   
             <h1>Pratos Principais</h1>
 
             <div className="dishs">
