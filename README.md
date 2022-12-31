@@ -1,5 +1,22 @@
-Projeto em desenvolvimento.
 
-React + styled-components.
+Food Explorer
 
-![Captura de tela de 2022-09-21 21-06-36](https://user-images.githubusercontent.com/99975837/191630981-3e8b0dfb-b84c-44fa-988d-ce2b45bd9da5.png)
+## Descrição do Projeto
+
+A aplicação que foi desenvolvida é um cardápio digital para um restaurante fictício, conhecido como foodExplorer.
+## Tecnologias
+
+As seguintes tecnologias foram usadas nessa aplicação: HTML, CSS, JavaScript, Node.js, React.js
+## Funcionalidades e Critérios
+
+- Os usuários deverão se autenticar para entrar na aplicação através da tela de login. Para essa funcionailidade foi utilizada a tecnoliga de autenticação JWT que é validada na aplicação através de senha;
+
+- O admin faz o upload de imagens para cadastrar os pratos;
+
+- Os dados do admin, do restaurante e dos usuários são armazenados em um banco de dados (SQLite);
+
+- Possibilidade de fazer uma busca pelo nome do prato;
+
+- A interface Front-End consume uma API (disponivel nesse reposítório:).
+
+- A aplicação está totalmente responsiva, atende aos conceitos de "mobile-first".
