@@ -122,7 +122,7 @@ export function Details() {
                
                   <div className="value">
                      <div className="price">
-                        <span>R$ {data.price}</span>
+                        <span>R$ {data.price.toString().replace(".", ",")}</span>
                      </div>
                      <div className="buttons">
                         <button className="add">

@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import { Container } from "./styles";
 
 import polygon from "../../assets/polygon.svg";
@@ -10,10 +12,16 @@ import { useAuth } from "../../hooks/auth";
 
 import { Input } from "../Input";
 import { Button } from "../Button";
+
  
 export function Header({ search }) {
-
    const { SignOut } = useAuth();
+   const navigate = useNavigate();
+
+   function handleSignOut() {
+      navigate("/");
+      SignOut();
+   }
 
    return(
       <Container>
@@ -44,7 +52,7 @@ export function Header({ search }) {
             />
          </div>
 
-         <button onClick={SignOut}>
+         <button onClick={handleSignOut}>
             <img src={goBack} />
          </button>
          
