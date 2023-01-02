@@ -19,7 +19,7 @@ As seguintes tecnologias foram usadas nessa aplicação: HTML, CSS, JavaScript, 
 
 - Possibilidade de fazer uma busca pelo nome do prato;
 
-- A interface Front-End consume uma API (disponível nesse reposítório: https://github.com/Tiago-92/food-explorer-backend).
+- A interface Front-End consome uma API (disponível nesse reposítório: https://github.com/Tiago-92/food-explorer-backend).
 
 - A aplicação está totalmente responsiva, atende aos conceitos de "mobile-first";
 
