@@ -38,7 +38,7 @@ git clone git@github.com:Tiago-92/food_explorer_frontend.git
 
 ```
 
-Abra o seu editor de código na pasta que você fez o clone e faça a instalação das depências do projeto com:
+Abra o seu editor de código na pasta que você fez o clone e faça a instalação das depêndencias do projeto com:
 
 ```bash
 npm istall 
