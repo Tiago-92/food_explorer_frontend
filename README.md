@@ -20,7 +20,9 @@ As seguintes tecnologias foram usadas nessa aplicação: HTML, CSS, JavaScript, 
 
 - A interface Front-End consume uma API (disponivel nesse reposítório: https://github.com/Tiago-92/food-explorer-backend).
 
-- A aplicação está totalmente responsiva, atende aos conceitos de "mobile-first".
+- A aplicação está totalmente responsiva, atende aos conceitos de "mobile-first";
+
+- O deploy da interface foi executado com o [Netfly](https://www.netlify.com/) e o deploy do back-end com o [Render](https://render.com/).
 
  ## Requisitos
  
@@ -42,6 +44,6 @@ npm istall
 
 ```
 
-##Deploy
+## Resultado Final
 
 Deploy da aplicação dispónivel em https://food-explorer-web.netlify.app/
