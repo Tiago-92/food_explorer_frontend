@@ -50,7 +50,7 @@ npm istall
 Deploy da aplicação dispónivel em https://food-explorer-web.netlify.app/.
 <br>
 <br>
-Para testar aplicação:
+Para testar a aplicação:
 <br>
 Usuário administrador: adm@adm.com
 <br>
