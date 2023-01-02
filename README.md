@@ -27,7 +27,7 @@ As seguintes tecnologias foram usadas nessa aplicação: HTML, CSS, JavaScript, 
 
  ## Requisitos
  
- Para executar esse projeto em seu computador/notebook, você precisa ter instalado o ambiente de execução JavaScript server-side [Node.js](https://nodejs.org/en/), o sistema de versionamento de código [Git](https://git-scm.com/) e um editor de código de sua prefrênncia, como por exemplo o [Visual Studio Code](https://code.visualstudio.com/).
+ Para executar esse projeto em seu computador/notebook, você precisa ter instalado o ambiente de execução JavaScript server-side [Node.js](https://nodejs.org/en/), o sistema de versionamento de código [Git](https://git-scm.com/) e um editor de código de sua preferência, como por exemplo o [Visual Studio Code](https://code.visualstudio.com/).
  
  ## Executando o Projeto
  
