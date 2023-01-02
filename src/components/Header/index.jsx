@@ -47,7 +47,7 @@ export function Header({ search }) {
          <div className="button">
             <Button 
                title="Meus Pedidos (0)"
-               to="/payment"
+               to="/finalize"
                icon={Receipt}
             />
          </div>

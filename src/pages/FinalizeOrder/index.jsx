@@ -14,7 +14,7 @@ import { Container, Content } from "./styles";
 
 export function FinalizeOrder() {
    const [carts, setCarts] = useState([]);
-
+   
    useEffect(() => {
       async function fetchCart() {
          const response = await api.get("/cart/?user_id=14");

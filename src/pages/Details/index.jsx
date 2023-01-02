@@ -127,7 +127,7 @@ export function Details() {
                      <div className="buttons">
                         <button className="add">
                            <img src={acc} />
-                        </button>
+                        </button>z
                         01
                         <button className="acc">
                            <img src={add} />

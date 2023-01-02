@@ -41,8 +41,9 @@ export const Content = styled.div`
 
    > .order {
       width: 27.75rem;
+
       margin-bottom: 2rem;
-      height: 30rem;
+      height: 62.5rem;
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
