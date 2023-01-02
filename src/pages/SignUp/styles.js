@@ -10,6 +10,7 @@ export const Container = styled.div`
    > h1 {
       display: flex;
       gap: 1.19rem;
+      align-items: center;
 
       font-size: 2.6rem;
       font-weight: 700;
