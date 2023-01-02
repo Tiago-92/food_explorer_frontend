@@ -62,11 +62,15 @@ export const Content = styled.div`
       display: flex;
       flex-direction: column;
       margin-left: -10px;
+      
 
       .order {
          width: 26.25rem;
          padding-left: 2rem;
 
+         height: 100vh;
+         margin: 0;
+         
          > h1 {
             display: block;
             font-size: 1.87rem;
