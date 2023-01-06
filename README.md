@@ -45,12 +45,19 @@ npm istall
 
 ```
 
+Por fim, digite esse comando para executar o projeto:
+
+```bash
+npm run dev 
+
+```
+
 ## Resultado Final
 
-Deploy da aplicação dispónivel em https://food-explorer-web.netlify.app/.
+A hospedagem da aplicação está disponível nesse endereço: https://food-explorer-web.netlify.app/.
 <br>
 <br>
-Para testar a aplicação:
+Para testar:
 <br>
 Usuário administrador: adm@adm.com
 <br>
